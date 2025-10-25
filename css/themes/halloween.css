@@ -1,1 +1,21 @@
+/* Хэллоуинская тема */
+.theme-halloween {
+    --primary-color: #ff6600;
+    --secondary-color: #000000;
+    --background-color: #1a0f00;
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 102, 0, 0.1);
+    --orbit-color: rgba(255, 102, 0, 0.5);
+}
 
+.theme-halloween body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="20" font-size="8">🎃</text></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+}
