@@ -1,1 +1,18 @@
-
+{
+    "schedule": [
+        {
+            "day": "monday",
+            "displayName": "Понедельник",
+            "time": "19:00",
+            "activity": "Прохождение Hollow Knight",
+            "game": "Hollow Knight"
+        },
+        {
+            "day": "tuesday",
+            "displayName": "Вторник",
+            "time": "20:00",
+            "activity": "Обзор инди-игр",
+            "game": "Various"
+        }
+    ]
+}
