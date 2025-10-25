@@ -1,1 +1,24 @@
-
+{
+    "games": [
+        {
+            "id": 1,
+            "title": "Hollow Knight",
+            "cover": "assets/images/games/hollow-knight.jpg",
+            "rating": 9,
+            "description": "Приключение в загадочном мире насекомых",
+            "videoUrl": "https://www.youtube.com/embed/UAO2urG23S4",
+            "completed": true,
+            "completionDate": "2024-01-15"
+        },
+        {
+            "id": 2,
+            "title": "Stardew Valley",
+            "cover": "assets/images/games/stardew-valley.jpg",
+            "rating": 10,
+            "description": "Уютная ферма и жизнь в деревне",
+            "videoUrl": "https://www.youtube.com/embed/ot7uXNQskhs",
+            "completed": true,
+            "completionDate": "2024-01-10"
+        }
+    ]
+}
