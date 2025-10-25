@@ -1,1 +1,44 @@
+/* Schedule Styles */
+.schedule-section {
+    padding: 100px 0;
+}
 
+.schedule-table {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 60px;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.schedule-row.header {
+    background: rgba(0, 255, 0, 0.2);
+    font-weight: bold;
+}
+
+.schedule-row.today {
+    background: rgba(255, 255, 0, 0.1);
+    border-left: 3px solid var(--secondary-color);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    animation: blink 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+}
