@@ -13,7 +13,7 @@ const ReptileCursor = {
                 this.foundSecrets++;
                 
                 if (this.foundSecrets === this.totalSecrets) {
-                    this.activateReptileCursor();
+                    this.activateComplexReptileCursor();
                 }
                 
                 setTimeout(() => {
@@ -23,22 +23,42 @@ const ReptileCursor = {
         });
     },
 
-    activateReptileCursor() {
-        document.body.style.cursor = 'none';
-        alert('Поздравляем! Вы нашли все секреты! Активен курсор-рептилия!');
+    activateComplexReptileCursor() {
+        // Activate the complex reptile cursor
+        if (typeof ComplexReptileCursor !== 'undefined') {
+            ComplexReptileCursor.init();
+        }
         
-        // Здесь можно добавить более сложную логику для курсора-рептилии
-        const reptile = document.createElement('div');
-        reptile.innerHTML = '🦎';
-        reptile.style.position = 'fixed';
-        reptile.style.fontSize = '24px';
-        reptile.style.pointerEvents = 'none';
-        reptile.style.zIndex = '10000';
-        document.body.appendChild(reptile);
+        // Show success message
+        this.showActivationMessage();
+    },
+
+    showActivationMessage() {
+        const message = document.createElement('div');
+        message.innerHTML = '🎉 Поздравляем! Вы нашли все секреты! Активен сложный курсор-рептилия! 🦎';
+        message.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 255, 0, 0.9);
+            color: black;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 10000;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            animation: float 2s ease-in-out infinite;
+        `;
         
-        document.addEventListener('mousemove', (e) => {
-            reptile.style.left = (e.clientX + 10) + 'px';
-            reptile.style.top = (e.clientY + 10) + 'px';
-        });
+        document.body.appendChild(message);
+        
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            if (message.parentNode) {
+                message.parentNode.removeChild(message);
+            }
+        }, 5000);
     }
 };
