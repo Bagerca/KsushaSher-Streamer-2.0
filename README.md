@@ -1,1 +1,0 @@
-# KsushaSher-Streamer-2.0
