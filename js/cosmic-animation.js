@@ -1,35 +1,34 @@
-// Cosmic animation with planets and orbits
 const CosmicAnimation = {
     init() {
-        this.loadSubscribers();
         this.arrangeSubscribers();
     },
     
-    loadSubscribers() {
-        // In real implementation, this would fetch from JSON
-        this.subscribers = [
-            { name: 'Sub1', avatar: 'assets/images/subscribers/avatar1.jpg' },
-            { name: 'Sub2', avatar: 'assets/images/subscribers/avatar2.jpg' },
-            // ... more subscribers
-        ];
-    },
-    
     arrangeSubscribers() {
-        const container = document.getElementById('subscriberAvatars');
-        const radius = 200;
-        const angleStep = (2 * Math.PI) / this.subscribers.length;
+        const avatars = [
+            'linear-gradient(45deg, #ff0000, #ff9900)',
+            'linear-gradient(45deg, #00ff00, #00ccff)',
+            'linear-gradient(45deg, #9900ff, #ff00cc)',
+            'linear-gradient(45deg, #ffff00, #ff6600)',
+            'linear-gradient(45deg, #00ffff, #0066ff)',
+            'linear-gradient(45deg, #ff00ff, #cc00ff)'
+        ];
         
-        this.subscribers.forEach((subscriber, index) => {
+        const container = document.getElementById('subscriberAvatars');
+        container.innerHTML = '';
+        
+        const radius = 200;
+        const angleStep = (2 * Math.PI) / avatars.length;
+        
+        avatars.forEach((avatarColor, index) => {
             const angle = index * angleStep;
             const x = radius * Math.cos(angle) + radius;
             const y = radius * Math.sin(angle) + radius;
             
-            const avatarElement = document.createElement('img');
+            const avatarElement = document.createElement('div');
             avatarElement.className = 'subscriber-avatar';
-            avatarElement.src = subscriber.avatar;
-            avatarElement.alt = subscriber.name;
             avatarElement.style.left = `${x}px`;
             avatarElement.style.top = `${y}px`;
+            avatarElement.style.background = avatarColor;
             
             container.appendChild(avatarElement);
         });
