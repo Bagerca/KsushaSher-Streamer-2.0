@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ksusha Sher - Стример</title>
-    
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/themes/main.css">
-    <link rel="stylesheet" href="css/components/cosmic-animation.css">
-    <link rel="stylesheet" href="css/components/schedule.css">
-    <link rel="stylesheet" href="css/components/media-cards.css">
-    <link rel="stylesheet" href="css/components/radar-chart.css">
-    <link rel="stylesheet" href="css/components/modal.css">
+    <style>
+        /* Temporary inline styles for immediate functionality */
+        .secret-element {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            opacity: 0.1;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+        .secret-element:hover { opacity: 0.7; }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container nav-container">
             <div class="logo">Ksusha Sher</div>
@@ -30,12 +35,11 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="cosmic-container">
             <div class="central-planets">
-                <img src="assets/images/planets/ksusha.jpg" alt="Ksusha" class="planet main-planet">
-                <img src="assets/images/planets/boyfriend.jpg" alt="Boyfriend" class="planet main-planet">
+                <div class="planet"></div>
+                <div class="planet"></div>
             </div>
             <div class="orbit">
                 <div class="orbit-line"></div>
@@ -44,15 +48,15 @@
         </div>
     </section>
 
-    <!-- Schedule Section -->
     <section class="schedule-section">
         <div class="container">
             <h2 class="section-title">Расписание стримов</h2>
-            <div class="schedule-table" id="scheduleTable"></div>
+            <div class="schedule-table" id="scheduleTable">
+                <!-- Schedule will be loaded by JavaScript -->
+            </div>
         </div>
     </section>
 
-    <!-- Media Section -->
     <section class="media-section">
         <div class="container">
             <h2 class="section-title">Медиа-контент</h2>
@@ -66,15 +70,13 @@
                 <div class="cards-grid" id="moviesGrid" style="display: none;"></div>
                 <div class="expand-overlay">
                     <button class="expand-button" id="expandButton">
-                        Показать все
-                        <span class="arrow">▼</span>
+                        Показать все <span class="arrow">▼</span>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
             <h2 class="section-title">Статистика канала</h2>
@@ -84,7 +86,6 @@
         </div>
     </section>
 
-    <!-- Video Modal -->
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
@@ -92,7 +93,6 @@
         </div>
     </div>
 
-    <!-- Audio Visualizer -->
     <div class="audio-visualizer" id="audioVisualizer"></div>
 
     <!-- Secret Elements -->
@@ -101,12 +101,12 @@
     <div class="secret-element" style="bottom: 30%; left: 15%;">🎮</div>
     <div class="secret-element" style="bottom: 10%; right: 5%;">💖</div>
 
-    <!-- Audio -->
     <audio id="backgroundMusic" loop>
-        <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+        <!-- Add your music file here -->
+        <source src="assets/audio/music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/theme-manager.js"></script>
     <script src="js/cosmic-animation.js"></script>
