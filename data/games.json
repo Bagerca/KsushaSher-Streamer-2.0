@@ -1,24 +1,68 @@
-{
-    "games": [
-        {
-            "id": 1,
-            "title": "Hollow Knight",
-            "cover": "assets/images/games/hollow-knight.jpg",
-            "rating": 9,
-            "description": "Приключение в загадочном мире насекомых",
-            "videoUrl": "https://www.youtube.com/embed/UAO2urG23S4",
-            "completed": true,
-            "completionDate": "2024-01-15"
-        },
-        {
-            "id": 2,
-            "title": "Stardew Valley",
-            "cover": "assets/images/games/stardew-valley.jpg",
-            "rating": 10,
-            "description": "Уютная ферма и жизнь в деревне",
-            "videoUrl": "https://www.youtube.com/embed/ot7uXNQskhs",
-            "completed": true,
-            "completionDate": "2024-01-10"
-        }
-    ]
-}
+[
+  {
+    "id": "hollow-knight",
+    "title": "Hollow Knight: Silksong",
+    "rating": 5,
+    "description": "Приключение в мире насекомых с потрясающим артом и сложным геймплеем. Продолжение культового метроидвании.",
+    "image": "assets/images/games/hollow-knight.jpg",
+    "genres": ["platformer", "adventure", "metroidvania"],
+    "status": "playing",
+    "videoId": "LJp6yJZZoic",
+    "customColor": "#b967ff"
+  },
+  {
+    "id": "dead-island-2",
+    "title": "Dead Island 2",
+    "rating": 4,
+    "description": "Зомби-апокалипсис в солнечной Калифорнии. Бей, руби и стреляй в зомби с юмором и стилем.",
+    "image": "assets/images/games/dead-island-2.jpg",
+    "genres": ["horror", "action", "rpg"],
+    "status": "playing",
+    "videoId": "E3ZU6om0B8c",
+    "customColor": "#ff6b00"
+  },
+  {
+    "id": "cyberpunk-2077",
+    "title": "Cyberpunk 2077",
+    "rating": 4.5,
+    "description": "Научно-фантастический RPG в открытом мире Найт-Сити. Стань киберпанк-легендой.",
+    "image": "assets/images/games/cyberpunk-2077.jpg",
+    "genres": ["rpg", "action", "futuristic"],
+    "status": "completed",
+    "videoId": "8X2kIfS6fb8",
+    "customColor": "#14c3ff"
+  },
+  {
+    "id": "stray",
+    "title": "Stray",
+    "rating": 4.5,
+    "description": "Игра про кота в киберпанк-городе. Решай головоломки и исследуй загадочный мир.",
+    "image": "assets/images/games/stray.jpg",
+    "genres": ["adventure", "puzzle", "indie"],
+    "status": "completed",
+    "videoId": "u84hRUQlIOk",
+    "customColor": "#ffd700"
+  },
+  {
+    "id": "elden-ring",
+    "title": "Elden Ring",
+    "rating": 5,
+    "description": "Эпическое фэнтези от создателей Dark Souls. Исследуй огромный открытый мир.",
+    "image": "assets/images/games/elden-ring.jpg",
+    "genres": ["rpg", "action", "fantasy"],
+    "status": "dropped",
+    "videoId": "AKXiKBnzpBQ",
+    "customColor": "#8b4513"
+  },
+  {
+    "id": "overwatch-2",
+    "title": "Overwatch 2",
+    "rating": 3.5,
+    "description": "Командный шутер с уникальными героями. Сражайся в динамичных битвах.",
+    "image": "assets/images/games/overwatch-2.jpg",
+    "genres": ["shooter", "action", "coop"],
+    "status": "on-hold",
+    "videoId": "GKXS_YA9sCs",
+    "customColor": "#ff2d95"
+  }
+]
