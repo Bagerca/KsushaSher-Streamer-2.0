@@ -1,1 +1,258 @@
+/* Дополнительные анимации и эффекты */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg); 
+    }
+}
 
+@keyframes glow {
+    0%, 100% { 
+        box-shadow: 0 0 5px currentColor; 
+    }
+    50% { 
+        box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; 
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+@keyframes textGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Классы анимаций */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.glowing {
+    animation: glow 2s ease-in-out infinite;
+}
+
+.shaking {
+    animation: shake 0.5s ease-in-out;
+}
+
+.pulsing {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.spinning {
+    animation: spin 3s linear infinite;
+}
+
+.glitch-text {
+    animation: textGlitch 0.5s ease-in-out;
+}
+
+/* Эффект неонового свечения */
+.neon-glow {
+    text-shadow: 
+        0 0 5px currentColor,
+        0 0 10px currentColor,
+        0 0 15px currentColor,
+        0 0 20px currentColor;
+}
+
+/* Эффект частиц */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    background: var(--neon-green);
+    animation: particle-float 1s ease-out forwards;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Анимации появления */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Анимации для темы Хэллоуин */
+.bat {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff8c00" d="M12,2A9,9 0 0,1 21,11C21,13.5 20,15.75 18.5,17.5L12,22L5.5,17.5C4,15.75 3,13.5 3,11A9,9 0 0,1 12,2M12,4A7,7 0 0,0 5,11C5,11.75 5.21,12.44 5.58,13.04L7,13.84C7,13.56 7,13.28 7,13C7,10.79 8.79,9 11,9C11.83,9 12.59,9.29 13.17,9.76L14.88,9.29C15.5,9.11 16,8.58 16,8C16,7.45 15.55,7 15,7C14.86,7 14.73,7.03 14.61,7.07L12.91,7.54C12.53,6.86 11.79,6.5 11,6.5C10.53,6.5 10.09,6.67 9.74,6.94L9.44,6.25C9.16,5.5 8.18,5.24 7.5,5.5C6.82,5.76 6.56,6.75 6.84,7.5L7.14,8.19C6.5,8.72 6.13,9.5 6.13,10.25C6.13,10.83 6.33,11.38 6.67,11.84L5.24,12.56C4.67,11.83 4.28,10.93 4.07,10H4.06C4,10.33 4,10.66 4,11A8,8 0 0,0 12,19A8,8 0 0,0 20,11C20,10.66 20,10.33 19.94,10H19.93C19.72,10.93 19.33,11.83 18.76,12.56L17.33,11.84C17.67,11.38 17.87,10.83 17.87,10.25C17.87,9.5 17.5,8.72 16.86,8.19L17.16,7.5C17.44,6.75 17.18,5.76 16.5,5.5C15.82,5.24 15.84,6.5 15.16,6.76L13.47,7.23C13.35,7.08 13.2,6.95 13.03,6.85C12.87,6.75 12.69,6.67 12.5,6.63L12.5,4.64C13.43,4.34 14.38,4.15 15.34,4.06C15.56,4.03 15.78,4 16,4C17.44,4 18.69,4.68 19.41,5.77C19.74,6.32 19.93,6.94 19.93,7.59C19.93,8.68 19.32,9.65 18.41,10.16C18.47,10.59 18.5,11.03 18.5,11.5C18.5,13.5 17.7,15.31 16.41,16.59L12,20.5L7.59,16.59C6.3,15.31 5.5,13.5 5.5,11.5C5.5,11.03 5.53,10.59 5.59,10.16C4.68,9.65 4.07,8.68 4.07,7.59C4.07,6.94 4.26,6.32 4.59,5.77C5.31,4.68 6.56,4 8,4C8.22,4 8.44,4.03 8.66,4.06C9.62,4.15 10.57,4.34 11.5,4.64V6.63C11.31,6.67 11.13,6.75 10.97,6.85C10.8,6.95 10.65,7.08 10.53,7.23L8.84,6.76C8.16,6.5 8.18,5.24 7.5,5.5Z"/></svg>') no-repeat center/contain;
+    animation: fly 15s linear infinite;
+    opacity: 0.7;
+    z-index: 9998;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-100px) translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateX(25vw) translateY(100px) rotate(90deg);
+    }
+    50% {
+        transform: translateX(50vw) translateY(50px) rotate(180deg);
+    }
+    75% {
+        transform: translateX(75vw) translateY(150px) rotate(270deg);
+    }
+    100% {
+        transform: translateX(100vw) translateY(0px) rotate(360deg);
+    }
+}
+
+/* Анимации для новогодней темы */
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1rem;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Эффект декодирования текста */
+.decode-text {
+    display: inline-block;
+    position: relative;
+    color: transparent;
+}
+
+.decode-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    color: var(--neon-green);
+    overflow: hidden;
+    animation: decode 2s ease-in-out forwards;
+    white-space: nowrap;
+}
+
+@keyframes decode {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Анимация ритма музыки */
+.music-bar {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background: var(--neon-green);
+    margin: 0 2px;
+    animation: musicPulse 0.5s ease-in-out infinite alternate;
+}
+
+.music-bar:nth-child(2) { animation-delay: 0.1s; }
+.music-bar:nth-child(3) { animation-delay: 0.2s; }
+.music-bar:nth-child(4) { animation-delay: 0.3s; }
+.music-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes musicPulse {
+    from { transform: scaleY(0.3); }
+    to { transform: scaleY(1); }
+}
+
+/* Анимация призрака для Ghost Hunt */
+.ghost {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: 
+        radial-gradient(circle at 20px 15px, white 15px, transparent 16px),
+        radial-gradient(circle at 20px 45px, white 25px, transparent 26px);
+    border-radius: 50% 50% 0 0;
+    animation: ghostFloat 3s ease-in-out infinite;
+    cursor: none;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    z-index: 9998;
+}
+
+.ghost.scared {
+    animation: ghostScared 0.5s ease-in-out;
+}
+
+@keyframes ghostFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes ghostScared {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
