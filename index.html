@@ -3,173 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="autoplay=()">
     <title>Ksusha Sher - Стример на Twitch</title>
-    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/base/typography.css">
+    <link rel="stylesheet" href="css/layouts/grid.css">
+    <link rel="stylesheet" href="css/layouts/sections.css">
+    <link rel="stylesheet" href="css/components/cursor.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/schedule.css">
+    <link rel="stylesheet" href="css/components/games.css">
+    <link rel="stylesheet" href="css/components/stats.css">
+    <link rel="stylesheet" href="css/components/modal.css">
+    <link rel="stylesheet" href="css/components/settings.css">
+    <link rel="stylesheet" href="css/components/particles.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <!-- Кастомный курсор -->
-    <div class="custom-cursor" id="customCursor">
-        <div class="cursor-ring"></div>
-        <div class="cursor-dot"></div>
+    <!-- Магнитный курсор -->
+    <div id="custom-cursor" class="cursor">
+        <div class="cursor-core"></div>
+        <div class="cursor-outer"></div>
+        <div class="cursor-trail"></div>
     </div>
 
-    <!-- Панель подписчика -->
-    <div class="subscriber-info" id="subscriberInfo">
-        <div class="subscriber-header">
-            <img src="" alt="Аватар" class="subscriber-avatar" id="subscriberAvatar">
-            <div>
-                <div class="subscriber-name" id="subscriberName">Имя подписчика</div>
-                <div class="subscriber-role" id="subscriberRole">Роль</div>
-            </div>
+    <!-- Расширяющиеся точки настроек -->
+    <div class="settings-dots" id="settings-dots">
+        <div class="settings-toggle" id="settings-toggle">
+            <i class="fas fa-cog"></i>
         </div>
-        <div class="subscriber-details" id="subscriberDetails">
-            Описание подписчика и его вклад в комьюнити...
-        </div>
-        <div class="subscriber-stats">
-            <div class="stat">
-                <div class="stat-value" id="statMonths">12+</div>
-                <div class="stat-label">месяцев</div>
+        <div class="settings-menu">
+            <div class="setting-option" data-theme="default" data-tooltip="Основная тема">
+                <i class="fas fa-palette"></i>
             </div>
-            <div class="stat">
-                <div class="stat-value" id="statMessages">1.2K</div>
-                <div class="stat-label">сообщений</div>
+            <div class="setting-option" data-theme="halloween" data-tooltip="Хэллоуин">
+                <i class="fas fa-ghost"></i>
             </div>
-            <div class="stat">
-                <div class="stat-value" id="statStreams">45</div>
-                <div class="stat-label">стримов</div>
+            <div class="setting-option" data-theme="christmas" data-tooltip="Новый Год">
+                <i class="fas fa-snowflake"></i>
+            </div>
+            <div class="setting-option" id="music-toggle" data-tooltip="Музыка">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="setting-option" id="fireworks-toggle" data-tooltip="Салют">
+                <i class="fas fa-fire"></i>
             </div>
         </div>
     </div>
 
-    <!-- Хедер -->
-    <header class="header">
-        <div class="container header__container">
-            <div class="logo">
-                <span class="logo__ksusha">Ksusha</span>
-                <span class="logo__sher">Sher</span>
-            </div>
+    <!-- Hero Section с вращающимися фото -->
+    <section class="hero-section" id="hero">
+        <div class="cosmic-orbit">
+            <!-- Орбитальные кольца -->
+            <div class="orbit-ring ring-1"></div>
+            <div class="orbit-ring ring-2"></div>
+            <div class="orbit-ring ring-3"></div>
             
-            <div class="menu-toggle" id="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <nav class="nav">
-                <ul class="nav__list" id="navMenu">
-                    <li class="nav__item"><a href="#about" class="nav__link">Обо мне</a></li>
-                    <li class="nav__item"><a href="#stats" class="nav__link">Статистика</a></li>
-                    <li class="nav__item"><a href="#schedule" class="nav__link">Расписание</a></li>
-                    <li class="nav__item"><a href="#games" class="nav__link">Игры</a></li>
-                    <li class="nav__item"><a href="#specs" class="nav__link">Железо</a></li>
-                    <li class="nav__item"><a href="#donation" class="nav__link">Поддержать</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Герой секция -->
-    <section class="hero" id="hero">
-        <div class="hologram-container">
-            <div class="hologram-glow"></div>
-            
-            <div class="hologram-layer layer-1">
-                <div class="layer-pulse"></div>
-            </div>
-            <div class="hologram-layer layer-2">
-                <div class="layer-pulse"></div>
-            </div>
-            <div class="hologram-layer layer-3">
-                <div class="layer-pulse"></div>
-            </div>
-            
-            <div class="hologram-main" id="mainPhoto">
-                <img src="https://sun9-77.userapi.com/s/v1/ig2/0OR3RICiyT0ChbYSgH_Z__xZK1P3I2Dt_HfYblOl_MGxbfw44HoOLWjQopWlWRyoiumXYzf0QH_qCwspbr0mnyT0.jpg?quality=96&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1620x2160&from=bu&cs=1620x0" alt="Ksusha Sher">
-            </div>
-            
-            <!-- Точки данных подписчиков -->
-            <div class="data-node node-1" data-user="alexey">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Алексей">
-                <div class="node-label">Алексей</div>
-            </div>
-            
-            <div class="data-node node-2" data-user="maria">
-                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Мария">
-                <div class="node-label">Мария</div>
-            </div>
-            
-            <div class="data-node node-3" data-user="dmitry">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Дмитрий">
-                <div class="node-label">Дмитрий</div>
-            </div>
-        </div>
-
-        <div class="container hero__container">
-            <div class="hero__content">
-                <h1 class="hero__title">Ksusha Sher</h1>
-                <p class="hero__subtitle">Профессиональный стример • Создатель контента • Геймер</p>
-                <div class="hero__buttons">
-                    <a href="https://www.twitch.tv/ksusha__sher?sr=a" target="_blank" rel="noopener noreferrer" class="btn btn--twitch">
-                        <i class="fab fa-twitch"></i> Смотреть на Twitch
-                    </a>
-                    <a href="https://t.me/pizdeckakoi_to" target="_blank" rel="noopener noreferrer" class="btn btn--telegram">
-                        <i class="fab fa-telegram"></i> Телеграм канал
-                    </a>
+            <!-- Основные фото -->
+            <div class="main-photos">
+                <div class="photo-orbit ksusha-orbit" data-cursor-magnetic data-user="ksusha">
+                    <div class="photo-frame">
+                        <img src="assets/images/avatars/ksusha.jpg" alt="Ksusha Sher" class="profile-photo">
+                    </div>
+                </div>
+                <div class="photo-orbit tetalbot-orbit" data-cursor-magnetic data-user="tetalbot">
+                    <div class="photo-frame">
+                        <img src="assets/images/avatars/boyfriend.jpg" alt="TetlaBot" class="profile-photo">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Секция "Обо мне" -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">Обо мне</h2>
-            <div class="about__content">
-                <div class="about__text">
-                    <p>Привет! Я Ksusha Sher - стример на Twitch, который специализируется на играх и общении с комьюнити. Я создаю уютное и welcoming сообщество, где каждый чувствует себя как дома.</p>
-                    <p>Мои стримы - это не только игровой контент, но и общение, шутки, и просто хорошее времяпрепровождение вместе с комьюнити.</p>
-                    <p>Присоединяйся к нашему уютному сообществу и стань часть нашей цифровой семьи!</p>
+            <!-- Фото подписчиков на орбите -->
+            <div class="subscribers-orbit">
+                <div class="subscriber" data-cursor-magnetic data-user="bager">
+                    <div class="subscriber-avatar">
+                        <img src="assets/images/avatars/bager.jpg" alt="BAGERca">
+                    </div>
+                    <div class="subscriber-info-panel">
+                        <h4>BAGERca</h4>
+                        <p>Главный разработчик и модератор</p>
+                        <div class="subscriber-stats">
+                            <span>24+ месяцев</span>
+                            <span>8.7K сообщений</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="about__media">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/LYtMQlY8Qlk" title="Обо мне" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="subscriber" data-cursor-magnetic data-user="angel">
+                    <div class="subscriber-avatar">
+                        <img src="assets/images/avatars/angel.jpg" alt="To Be Angle">
+                    </div>
+                    <div class="subscriber-info-panel">
+                        <h4>To Be Angle</h4>
+                        <p>Активный участник комьюнити</p>
+                        <div class="subscriber-stats">
+                            <span>18+ месяцев</span>
+                            <span>5.2K сообщений</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="subscriber" data-cursor-magnetic data-user="kiriki">
+                    <div class="subscriber-avatar">
+                        <img src="assets/images/avatars/kiriki.jpg" alt="Kiriki">
+                    </div>
+                    <div class="subscriber-info-panel">
+                        <h4>Kiriki</h4>
+                        <p>Легенда чата</p>
+                        <div class="subscriber-stats">
+                            <span>36+ месяцев</span>
+                            <span>15.8K сообщений</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Статистика -->
-    <section class="stats" id="stats">
-        <div class="container">
-            <h2 class="section-title">Статистика канала</h2>
-            <p class="stats__subtitle">Динамика развития и ключевые показатели</p>
-            
-            <div class="radar-chart-container">
-                <canvas id="radarChart"></canvas>
-                <div class="radar-center">
-                    <div class="center-stats">
-                        <span class="center-value">3+</span>
-                        <span class="center-label">года опыта</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stats-grid" id="statsGrid">
-                <!-- Данные загружаются через JS -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-part">Ksusha</span>
+                <span class="title-part">Sher</span>
+            </h1>
+            <p class="hero-subtitle">Стример • Геймер • Создатель контента</p>
+            <div class="hero-buttons">
+                <a href="https://twitch.tv/ksusha__sher" target="_blank" class="cta-button twitch">
+                    <i class="fab fa-twitch"></i> Смотреть на Twitch
+                </a>
+                <a href="https://t.me/pizdeckakoi_to" target="_blank" class="cta-button telegram">
+                    <i class="fab fa-telegram"></i> Телеграм канал
+                </a>
             </div>
         </div>
+
+        <!-- Эффект частиц -->
+        <div id="particles-js"></div>
     </section>
 
-    <!-- Расписание -->
-    <section class="schedule" id="schedule">
+    <!-- Секция расписания -->
+    <section id="schedule" class="section">
         <div class="container">
             <h2 class="section-title">Расписание стримов</h2>
-            <p class="schedule__subtitle">🕓 Начало в <span class="neon-text">16:00 по МСК</span>, длительность 3+ часа</p>
+            <p class="section-subtitle">🕓 Начало в <span class="neon-text">16:00 по МСК</span>, длительность 3+ часа</p>
             
-            <div class="schedule-list" id="scheduleList">
-                <!-- Данные загружаются через JS -->
+            <div class="schedule-container">
+                <div class="schedule-grid" id="schedule-list">
+                    <!-- Загрузка через JavaScript -->
+                    <div class="schedule-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Загрузка расписания...</p>
+                    </div>
+                </div>
             </div>
             
             <div class="schedule-footer">
@@ -178,178 +166,233 @@
         </div>
     </section>
 
-    <!-- Игры и фильмы -->
-    <section class="games" id="games">
+    <!-- Секция игр и фильмов -->
+    <section id="games" class="section">
         <div class="container">
-            <h2 class="section-title">Игры и кино</h2>
+            <h2 class="section-title">Игры и Кино</h2>
             
-            <div class="games-controls">
-                <div class="controls-section">
-                    <div class="games-tabs">
-                        <button class="games-tab active" data-tab="games">
-                            <i class="fas fa-gamepad"></i> Игры
-                        </button>
-                        <button class="games-tab" data-tab="movies">
-                            <i class="fas fa-film"></i> Фильмы
-                        </button>
-                        <div class="tab-slider"></div>
-                    </div>
-                    
-                    <div class="filter-container">
-                        <button class="filter-toggle" id="filterToggle">
-                            <i class="fas fa-filter"></i> Фильтры
-                        </button>
-                        <div class="filter-dropdown" id="filterDropdown">
-                            <!-- Фильтры загружаются через JS -->
+            <div class="content-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="games">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Игры</span>
+                    </button>
+                    <button class="tab-button" data-tab="movies">
+                        <i class="fas fa-film"></i>
+                        <span>Фильмы</span>
+                    </button>
+                </div>
+
+                <div class="filters-section">
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <h4>Статус</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="status-all" data-type="games" checked>
+                                    <span class="checkmark"></span>
+                                    Все
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="completed" data-type="games">
+                                    <span class="checkmark"></span>
+                                    Пройдено
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="playing" data-type="games">
+                                    <span class="checkmark"></span>
+                                    Проходим
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="dropped" data-type="games">
+                                    <span class="checkmark"></span>
+                                    Брошено
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Жанры</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="all" data-type="games" checked>
+                                    <span class="checkmark"></span>
+                                    Все
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="horror" data-type="games">
+                                    <span class="checkmark"></span>
+                                    Хоррор
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="adventure" data-type="games">
+                                    <span class="checkmark"></span>
+                                    Приключения
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" data-filter="rpg" data-type="games">
+                                    <span class="checkmark"></span>
+                                    RPG
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="sort-tabs">
-                        <button class="sort-tab active" data-sort="name">
-                            <i class="fas fa-sort-alpha-down"></i>
-                        </button>
-                        <button class="sort-tab" data-sort="rating">
-                            <i class="fas fa-star"></i>
-                        </button>
-                        <div class="sort-slider"></div>
+
+                    <div class="sort-options">
+                        <select id="sort-select" class="sort-select">
+                            <option value="name">По названию</option>
+                            <option value="rating">По рейтингу</option>
+                            <option value="recent">По дате</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="tab-content active" id="games-content">
+                        <div class="cards-grid" id="games-grid">
+                            <div class="loading-state">
+                                <div class="loading-spinner"></div>
+                                <p>Загрузка игр...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="movies-content">
+                        <div class="cards-grid" id="movies-grid">
+                            <div class="loading-state">
+                                <div class="loading-spinner"></div>
+                                <p>Загрузка фильмов...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="expand-button" id="expand-button">
+                    <span>Развернуть</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция статистики -->
+    <section id="stats" class="section">
+        <div class="container">
+            <h2 class="section-title">Статистика канала</h2>
+            <p class="section-subtitle">Динамика развития и ключевые показатели</p>
+            
+            <div class="radar-container">
+                <canvas id="radar-chart"></canvas>
+                <div class="radar-center">
+                    <div class="center-stats">
+                        <span class="center-value">3+</span>
+                        <span class="center-label">года опыта</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3 id="stat-followers">5.2K+</h3>
+                        <p>Подписчиков на Twitch</p>
+                        <div class="stat-trend positive">+12% за месяц</div>
                     </div>
                 </div>
                 
-                <div class="legend-section">
-                    <div class="status-legend">
-                        <span class="legend-item">
-                            <span class="status-badge completed"></span> Пройдено
-                        </span>
-                        <span class="legend-item">
-                            <span class="status-badge playing"></span> Проходим
-                        </span>
-                        <span class="legend-item">
-                            <span class="status-badge dropped"></span> Брошено
-                        </span>
-                        <span class="legend-item">
-                            <span class="status-badge on-hold"></span> Под вопросом
-                        </span>
+                <div class="stat-card">
+                    <div class="stat-icon">📡</div>
+                    <div class="stat-content">
+                        <h3 id="stat-streams">154</h3>
+                        <p>Проведенных стримов</p>
+                        <div class="stat-trend positive">3.2 в неделю</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <h3 id="stat-hours">1,000+</h3>
+                        <p>Часов контента</p>
+                        <div class="stat-trend positive">250ч/год</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="games-content-container">
-                <div class="games-content active" id="gamesContent">
-                    <div class="games-grid" id="gamesGrid"></div>
-                </div>
-                <div class="games-content" id="moviesContent">
-                    <div class="games-grid" id="moviesGrid"></div>
-                </div>
-            </div>
-            
-            <button class="toggle-games" id="toggleGames">Развернуть</button>
         </div>
     </section>
 
-    <!-- Железо -->
-    <section class="specs" id="specs">
-        <div class="container">
-            <h2 class="section-title">Мое железо</h2>
-            <div class="specs-grid">
-                <div class="spec-item">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Процессор</h3>
-                    <p>Intel Core i7-12700H</p>
-                </div>
-                <div class="spec-item">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Видеокарта</h3>
-                    <p>NVIDIA GeForce RTX 3060</p>
-                </div>
-                <div class="spec-item">
-                    <i class="fas fa-memory"></i>
-                    <h3>Память</h3>
-                    <p>16GB RAM</p>
-                </div>
-                <div class="spec-item">
-                    <i class="fas fa-microphone"></i>
-                    <h3>Микрофон</h3>
-                    <p>Shure SM7B</p>
+    <!-- Модальное окно для игр/фильмов -->
+    <div id="media-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-content">
+                <button class="close-modal" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="modal-body">
+                    <div class="modal-media-info">
+                        <div class="modal-image-container">
+                            <img id="modal-image" src="" alt="" class="modal-image">
+                            <div class="modal-rating" id="modal-rating"></div>
+                        </div>
+                        <div class="modal-details">
+                            <h3 id="modal-title" class="modal-title"></h3>
+                            <div class="modal-genres" id="modal-genres"></div>
+                            <p id="modal-description" class="modal-description"></p>
+                            <div class="modal-status">
+                                <span class="status-badge" id="modal-status"></span>
+                                <span id="modal-status-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-player">
+                        <div class="video-container">
+                            <iframe id="modal-video" width="100%" height="400" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Хэллоуинские приведения -->
+    <div id="ghosts-container" class="ghosts-container"></div>
+
+    <!-- Новогодний снег -->
+    <div id="snow-container" class="snow-container"></div>
+
+    <!-- Фейерверк -->
+    <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
+
+    <!-- Аудио для фоновой музыки -->
+    <audio id="background-music" loop>
+        <source src="assets/audio/background-music.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Аудио для темы Хэллоуин -->
+    <audio id="halloween-music" loop>
+        <source src="assets/audio/halloween-theme.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Аудио для новогодней темы -->
+    <audio id="christmas-music" loop>
+        <source src="assets/audio/christmas-theme.mp3" type="audio/mp3">
+    </audio>
 
     <!-- Поддержка -->
-    <section class="donation" id="donation">
-        <div class="container">
-            <h2 class="section-title">Поддержать</h2>
-            <p>Если тебе нравится мой контент, ты можешь поддержать меня финансово</p>
-            
-            <div class="donation-options">
-                <a href="https://www.donationalerts.com/r/ksusha__sher" target="_blank" class="donation-option">
-                    <h3>DonationAlerts</h3>
-                    <p>Прямые донаты</p>
-                </a>
-                <a href="https://memealerts.com/6765a519e6fb84c0655d3f01" target="_blank" class="donation-option">
-                    <h3>MemeAlerts</h3>
-                    <p>Альтернативные донаты</p>
-                </a>
-                <a href="https://www.twitch.tv/ksusha__sher?sr=a" target="_blank" class="donation-option">
-                    <h3>Twitch Подписка</h3>
-                    <p>Подписка на канале</p>
-                </a>
-            </div>
-            
-            <div class="card-number" id="cardNumber">
-                <i class="fas fa-credit-card"></i> 4276 1805 5058 1960
-                <span id="copyTooltip">Нажмите чтобы скопировать</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.twitch.tv/ksusha__sher?sr=a" target="_blank">
-                    <i class="fab fa-twitch"></i>
-                </a>
-                <a href="#" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://t.me/pizdeckakoi_to" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="#" target="_blank">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="#" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
-            <p>&copy; 2025 Ksusha Sher. Все права защищены. Сайт создан BAGERca.</p>
-        </div>
-    </footer>
-
-    <!-- Модальные окна -->
-    <div class="modal" id="gameModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 class="modal-game-title" id="modalGameTitle">Название игры</h2>
-            <div class="modal-game-rating" id="modalGameRating"></div>
-            <p class="modal-game-description" id="modalGameDescription">Описание игры...</p>
-            <div class="video-container">
-                <iframe id="modalGameVideo" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+    <div id="support-container">
+        <a id="support" href="https://www.buymeacoffee.com/imstark202u" target="_blank">
+            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee">
+        </a>
     </div>
 
-    <div class="history-modal" id="historyModal">
-        <div class="history-modal-content">
-            <span class="close-history-modal">&times;</span>
-            <h2 class="history-modal-title">История комьюнити</h2>
-            <div class="history-grid" id="historyGrid"></div>
-        </div>
-    </div>
-
-    <!-- Скрипты -->
-    <script src="js/vendors/chart.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/vendors/particles.min.js"></script>
     <script type="module" src="js/core/app.js"></script>
 </body>
 </html>
