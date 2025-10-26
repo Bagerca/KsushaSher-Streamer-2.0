@@ -1,0 +1,148 @@
+/* Particles and Effects */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Ghosts for Halloween */
+.ghosts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.ghost {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50% 50% 0 0;
+    animation: float-ghost 20s linear infinite;
+    opacity: 0;
+    filter: blur(1px);
+}
+
+.ghost::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: 15px 0 0 #000;
+}
+
+.ghost::after {
+    content: '';
+    position: absolute;
+    top: 35px;
+    left: 5px;
+    width: 30px;
+    height: 20px;
+    border-top: 3px solid #000;
+    border-radius: 50%;
+}
+
+@keyframes float-ghost {
+    0% {
+        transform: translateY(100vh) translateX(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Snow for Christmas */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1rem;
+    animation: fall linear infinite;
+    user-select: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fireworks */
+.fireworks-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Support Button */
+#support-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+#support img {
+    transition: all var(--transition-medium);
+    border-radius: var(--border-radius);
+}
+
+#support:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+@media (max-width: 768px) {
+    #support-container {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    #support img {
+        height: 50px;
+        width: auto;
+    }
+}
