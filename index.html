@@ -10,17 +10,29 @@
         /* Temporary inline styles for immediate functionality */
         .secret-element {
             position: fixed;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             opacity: 0.1;
             cursor: pointer;
-            transition: opacity 0.3s;
+            transition: all 0.3s ease;
             z-index: 100;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
         }
-        .secret-element:hover { opacity: 0.7; }
+        .secret-element:hover {
+            opacity: 0.8;
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="container nav-container">
             <div class="logo">Ksusha Sher</div>
@@ -35,6 +47,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="cosmic-container">
             <div class="central-planets">
@@ -48,6 +61,7 @@
         </div>
     </section>
 
+    <!-- Schedule Section -->
     <section class="schedule-section">
         <div class="container">
             <h2 class="section-title">Расписание стримов</h2>
@@ -57,6 +71,7 @@
         </div>
     </section>
 
+    <!-- Media Section -->
     <section class="media-section">
         <div class="container">
             <h2 class="section-title">Медиа-контент</h2>
@@ -77,6 +92,7 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
             <h2 class="section-title">Статистика канала</h2>
@@ -86,6 +102,7 @@
         </div>
     </section>
 
+    <!-- Video Modal -->
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <span class="close" id="closeModal">&times;</span>
@@ -93,6 +110,7 @@
         </div>
     </div>
 
+    <!-- Audio Visualizer -->
     <div class="audio-visualizer" id="audioVisualizer"></div>
 
     <!-- Secret Elements -->
@@ -114,6 +132,7 @@
     <script src="js/media-cards.js"></script>
     <script src="js/stats-radar.js"></script>
     <script src="js/audio-visualizer.js"></script>
+    <script src="js/complex-reptile-cursor.js"></script>
     <script src="js/reptile-cursor.js"></script>
     <script src="js/main.js"></script>
 </body>
