@@ -1,1 +1,31 @@
-
+/* CSS переменные */
+:root {
+    /* Цвета */
+    --neon-green: #39ff14;
+    --neon-pink: #ff2d95;
+    --dark-bg: #070711;
+    --medium-bg: #0f0f1b;
+    --light-text: #ccc;
+    --white: #ffffff;
+    
+    /* Статусы */
+    --completed-color: #39ff14;
+    --playing-color: #ff2d95;
+    --dropped-color: #ff6464;
+    --on-hold-color: #ffd700;
+    
+    /* Размеры */
+    --header-height: 70px;
+    --container-width: 1200px;
+    --border-radius: 10px;
+    
+    /* Тени */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+    
+    /* Анимации */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
