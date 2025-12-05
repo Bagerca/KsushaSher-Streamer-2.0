@@ -1,0 +1,31 @@
+.donate-btns {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.don-btn {
+    text-decoration: none;
+    padding: 15px 50px;
+    font-family: var(--font-head);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+    transition: 0.3s;
+}
+
+.don-btn.pink {
+    background: var(--pink);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+.don-btn.green {
+    background: var(--green);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.don-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
