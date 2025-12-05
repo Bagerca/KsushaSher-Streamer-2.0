@@ -1,0 +1,52 @@
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at center, #1a001a 0%, #050505 70%);
+}
+
+#hero-title {
+    font-family: var(--font-head);
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+    text-shadow: 2px 2px 0px var(--pink), -2px -2px 0px var(--green);
+}
+
+.hero-cards {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card img {
+    border-radius: 15px;
+    display: block;
+}
+
+.pink-neon {
+    box-shadow: 0 0 25px var(--pink);
+    border: 2px solid var(--pink);
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.green-neon {
+    box-shadow: 0 0 25px var(--green);
+    border: 2px solid var(--green);
+    opacity: 0.8;
+}
+
+.subs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sub-mini img {
+    border-radius: 50%;
+    border: 1px solid white;
+}
