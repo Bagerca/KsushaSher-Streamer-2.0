@@ -90,7 +90,7 @@
 }
 .green-text { color: var(--neon-green); text-shadow: 0 0 8px var(--neon-green); }
 
-/* --- ПРАВАЯ ПАНЕЛЬ --- */
+/* --- ПРАВАЯ ПАНЕЛЬ (СПИСОК) --- */
 .squad-icons {
     display: flex;
     justify-content: center;
@@ -122,6 +122,56 @@
 }
 
 .cursor-pointer { cursor: pointer; }
+
+/* --- ПРАВАЯ ПАНЕЛЬ (ДЕТАЛИ/INFO) --- */
+.back-btn {
+    text-align: left;
+    color: #888;
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.back-btn:hover { color: white; text-shadow: 0 0 5px white; }
+
+.detail-avatar-box {
+    width: 100px; height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 15px #ff3333; /* Красный неон (стиль BAGERca) */
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+}
+
+.detail-avatar-box img { width: 100%; height: 100%; object-fit: cover; }
+
+#d-name {
+    font-family: var(--font-ui);
+    font-size: 1.5rem;
+    color: #ff5555; /* Красный текст */
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 85, 85, 0.5);
+    animation: slideIn 0.4s ease;
+}
+
+#d-desc {
+    font-family: var(--font-body);
+    color: #ddd;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- ЦЕНТРАЛЬНЫЙ РАДАР --- */
 .center-radar {
@@ -197,7 +247,6 @@
     box-shadow: 0 0 5px var(--neon-pink);
     animation: blink 1s infinite;
 }
-
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 /* --- НИЖНИЙ БЛОК --- */
@@ -282,78 +331,6 @@
 }
 .hud-btn.outline:hover {
     background: white; color: black; box-shadow: 0 0 30px white;
-}
-
-/* --- МОДАЛЬНОЕ ОКНО (СТИЛЬ СО СКРИНШОТА) --- */
-.modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 5, 10, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-    backdrop-filter: blur(5px);
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.modal-card {
-    width: 400px;
-    padding: 40px;
-    background: #0f0f15;
-    border: 1px solid var(--neon-pink);
-    text-align: center;
-    position: relative;
-    transform: scale(0.8);
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.1);
-}
-
-.modal-overlay.active .modal-card { transform: scale(1); }
-
-.close-btn {
-    position: absolute;
-    top: 15px; right: 20px;
-    font-size: 2rem; color: #888;
-    cursor: pointer; line-height: 1; transition: 0.2s;
-}
-.close-btn:hover { color: var(--neon-pink); }
-
-.modal-avatar-box {
-    width: 120px; height: 120px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 20px #ff3333; /* Красное свечение как на скрине */
-    overflow: hidden;
-}
-
-.modal-avatar-box img { width: 100%; height: 100%; object-fit: cover; }
-
-#m-name {
-    font-family: var(--font-ui);
-    font-size: 1.8rem;
-    color: #ff5555;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 85, 85, 0.5);
-}
-
-#m-desc {
-    font-family: var(--font-body);
-    color: #ccc;
-    font-size: 1.1rem;
-    line-height: 1.6;
 }
 
 /* АДАПТИВ */
