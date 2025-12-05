@@ -1,7 +1,6 @@
 // --- 1. ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ ---
 const typingText = document.getElementById('typing-text');
 
-// Фразы для перебора
 const phrases = [
     "ПОДПИСЧИКОВ: 5.2K+",
     "ЛОЯЛЬНОСТЬ АУДИТОРИИ: 95%",
@@ -27,12 +26,12 @@ function typeEffect() {
     let typeSpeed = isDeleting ? 50 : 100;
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 2000; // Пауза после написания
+        typeSpeed = 2000; 
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500; // Пауза перед новой фразой
+        typeSpeed = 500;
     }
 
     setTimeout(typeEffect, typeSpeed);
@@ -42,8 +41,7 @@ function typeEffect() {
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
-// --- 2. МОДАЛЬНОЕ ОКНО (POPUP) ---
-// Данные подписчиков
+// --- 2. ПЕРЕКЛЮЧЕНИЕ ВНУТРИ ПАНЕЛИ ПОДПИСЧИКОВ ---
 const subscribersData = {
     'bager': {
         name: 'BAGERca',
@@ -57,25 +55,28 @@ const subscribersData = {
     }
 };
 
-const modal = document.getElementById('sub-modal');
-const mImg = document.getElementById('m-img');
-const mName = document.getElementById('m-name');
-const mDesc = document.getElementById('m-desc');
+const listView = document.getElementById('sub-list-view');
+const detailView = document.getElementById('sub-detail-view');
 
-// Открыть окно
-function openModal(id) {
+const dImg = document.getElementById('d-img');
+const dName = document.getElementById('d-name');
+const dDesc = document.getElementById('d-desc');
+
+// Показать информацию о подписчике
+function showSubscriber(id) {
     const data = subscribersData[id];
     if (data) {
-        mImg.src = data.img;
-        mName.textContent = data.name;
-        mDesc.textContent = data.desc;
-        modal.classList.add('active');
+        dImg.src = data.img;
+        dName.textContent = data.name;
+        dDesc.textContent = data.desc;
+
+        listView.style.display = 'none';
+        detailView.style.display = 'block';
     }
 }
 
-// Закрыть окно
-function closeModal(event) {
-    if (event.target === modal || event.target.classList.contains('close-btn')) {
-        modal.classList.remove('active');
-    }
+// Вернуться к списку
+function showList() {
+    detailView.style.display = 'none';
+    listView.style.display = 'block';
 }
