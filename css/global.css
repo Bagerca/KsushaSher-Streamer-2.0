@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
 
 :root {
+    /* Глубокий темный фон */
     --bg-dark: #05070a; 
+    
     /* Яркий кислотный зеленый */
     --neon-green: #00ff41; 
-    /* Настоящий неоновый розовый (Hot Magenta) */
-    --neon-pink: #ff00ff; 
     
-    --font-ui: 'Orbitron', sans-serif;
-    --font-tech: 'Share Tech Mono', monospace;
-    --font-body: 'Rajdhani', sans-serif;
+    /* НОВЫЙ НАСЫЩЕННЫЙ РОЗОВЫЙ */
+    --neon-pink: #ff2d95; 
+    
+    /* Шрифты */
+    --font-ui: 'Orbitron', sans-serif;       /* Заголовки */
+    --font-tech: 'Share Tech Mono', monospace; /* Цифры и код */
+    --font-body: 'Rajdhani', sans-serif;     /* Основной текст */
 }
 
 body {
@@ -17,45 +21,50 @@ body {
     color: white;
     margin: 0;
     font-family: var(--font-body);
-    overflow-x: hidden;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
 }
 
-/* СЕТКА ФОНА */
+/* --- СЕТКА ФОНА --- */
 .grid-background {
     position: fixed;
-    top: 0;
+    top: 0; 
     left: 0;
-    width: 100%;
+    width: 100%; 
     height: 100%;
+    /* Рисуем сетку градиентами */
     background-image: 
         linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background-size: 40px 40px; /* Размер ячейки */
     z-index: -1;
     pointer-events: none;
 }
 
-/* СКАНИРУЮЩАЯ ЛИНИЯ (АНИМИРОВАННАЯ) */
+/* --- СКАНИРУЮЩАЯ ЛИНИЯ --- */
 .scan-line {
     position: absolute;
-    width: 100%;
+    width: 100%; 
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-    box-shadow: 0 0 15px var(--neon-green); /* Сильное свечение */
+    box-shadow: 0 0 15px var(--neon-green);
     opacity: 0.8;
     z-index: 0;
-    /* Анимация движения вверх-вниз */
     animation: scanMove 6s ease-in-out infinite;
 }
 
 @keyframes scanMove {
     0% { top: 10%; opacity: 0; }
     10% { opacity: 1; }
-    50% { top: 60%; opacity: 0.8; } /* Замедляется в центре */
+    50% { top: 60%; opacity: 0.8; }
     90% { opacity: 1; }
     100% { top: 90%; opacity: 0; }
 }
 
-/* Глобальный класс для неонового текста */
-.text-glow-green { text-shadow: 0 0 10px var(--neon-green); }
-.text-glow-pink { text-shadow: 0 0 15px var(--neon-pink); }
+/* --- УТИЛИТЫ ДЛЯ СВЕЧЕНИЯ ТЕКСТА --- */
+.text-glow-green { 
+    text-shadow: 0 0 10px var(--neon-green); 
+}
+
+.text-glow-pink { 
+    text-shadow: 0 0 15px var(--neon-pink); 
+}
