@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM ONLINE: KSUSHA</title>
     
-    <!-- Иконки (FontAwesome) -->
+    <!-- Иконки -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Подключение стилей -->
+    <!-- Стили -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
 
-    <!-- ФОН: Сетка и Сканирующая линия -->
+    <!-- ФОН -->
     <div class="grid-background"></div>
     <div class="scan-line"></div>
 
+    <!-- ГЛАВНАЯ СЕКЦИЯ -->
     <section class="hero-ui">
         
         <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК -->
@@ -39,7 +40,7 @@
             </div>
         </div>
 
-        <!-- ЦЕНТР: РАДАР И СТРИМЕР -->
+        <!-- ЦЕНТР: РАДАР -->
         <div class="center-radar">
             <div class="radar-circles">
                 <div class="circle c1"></div>
@@ -63,14 +64,14 @@
                 <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc; font-size: 0.9rem;">VIP SUB UNIT</h4>
                 
                 <div class="squad-icons">
-                    <!-- Подписчик 1 -->
-                    <div class="squad-member">
+                    <!-- Подписчик 1 (с кликом) -->
+                    <div class="squad-member cursor-pointer" onclick="openModal('bager')">
                         <img src="assets/images/bager.jpg" alt="Bager">
                         <span style="display:block; margin-top:5px; font-family: var(--font-tech);">BAGERco</span>
                     </div>
                     
-                    <!-- Подписчик 2 -->
-                    <div class="squad-member">
+                    <!-- Подписчик 2 (с кликом) -->
+                    <div class="squad-member cursor-pointer" onclick="openModal('kiriki')">
                         <img src="assets/images/kiriki.jpg" alt="Kiriki">
                         <span style="display:block; margin-top:5px; font-family: var(--font-tech);">Kiriki</span>
                     </div>
@@ -85,11 +86,11 @@
 
     </section>
 
-    <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК, ТЕКСТ-МАШИНКА И КНОПКИ -->
+    <!-- НИЖНИЙ БЛОК -->
     <div class="bottom-ui">
         <h1 class="system-title">SYSTEM ONLINE: <span class="neon-text">KSUSHA SHER</span></h1>
         
-        <!-- Эффект печатной машинки -->
+        <!-- Печатная машинка -->
         <div class="subtitle-container">
             <span id="typing-text"></span><span class="cursor">|</span>
         </div>
@@ -100,7 +101,21 @@
         </div>
     </div>
 
-    <!-- Скрипт для анимации текста -->
+    <!-- МОДАЛЬНОЕ ОКНО (Скрыто) -->
+    <div id="sub-modal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeModal(event)">×</span>
+            
+            <div class="modal-avatar-box">
+                <img id="m-img" src="" alt="">
+            </div>
+            
+            <h3 id="m-name">NAME</h3>
+            <p id="m-desc">Description...</p>
+        </div>
+    </div>
+
+    <!-- Скрипт -->
     <script src="js/hero.js"></script>
 </body>
 </html>
