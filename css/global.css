@@ -1,43 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap');
+
 :root {
-    --bg: #050505;
-    --glass: rgba(255, 255, 255, 0.05);
-    --pink: #ff00ff;
-    --green: #00ff41;
-    --font-head: 'Orbitron', sans-serif;
-    --font-body: 'Montserrat', sans-serif;
+    --bg-dark: #02040a; /* Глубокий черный/синий */
+    --neon-green: #00ff41; /* Хакерский зеленый */
+    --neon-pink: #ff0055; /* Агрессивный розовый */
+    --glass: rgba(0, 255, 65, 0.05);
+    
+    --font-ui: 'Orbitron', sans-serif;       /* Заголовки */
+    --font-tech: 'Share Tech Mono', monospace; /* Цифры и мелкий текст */
+    --font-body: 'Rajdhani', sans-serif;     /* Тексты */
 }
 
 body {
-    margin: 0;
-    background-color: var(--bg);
+    background-color: var(--bg-dark);
     color: white;
+    margin: 0;
     font-family: var(--font-body);
     overflow-x: hidden;
 }
 
-.section-container {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    min-height: 50vh;
+/* Эффект сетки на фоне (как на скрине) */
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
 }
 
-h2 {
-    font-family: var(--font-head);
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, var(--green), #fff, var(--pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.glass-box {
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+/* Зеленая линия горизонта (сканирующая линия) */
+.scan-line {
+    position: absolute;
+    top: 55%; /* Чуть ниже центра, как на фото */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    box-shadow: 0 0 10px var(--neon-green);
+    opacity: 0.5;
+    z-index: 0;
 }
