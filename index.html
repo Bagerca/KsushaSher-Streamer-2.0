@@ -3,147 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSUSHA__SHER | Official</title>
-    
-    <!-- Шрифты и иконки -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+    <title>SYSTEM ONLINE: KSUSHA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Подключение всех стилей по очереди -->
+    
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/about.css">
-    <link rel="stylesheet" href="css/schedule.css">
-    <link rel="stylesheet" href="css/library.css">
-    <link rel="stylesheet" href="css/stats.css">
-    <link rel="stylesheet" href="css/specs.css">
-    <link rel="stylesheet" href="css/donate.css">
 </head>
 <body>
 
-    <!-- 1. HERO (Приветствие) -->
-    <section id="hero" class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 id="hero-title">KSUSHA__SHER</h1>
-            <div class="hero-cards">
-                <!-- Стримерша -->
-                <div class="card pink-neon">
-                    <img src="https://placehold.co/300x400/1a1a1a/ff00ff?text=Ksusha" alt="Ksusha">
-                </div>
-                <!-- Парень -->
-                <div class="card green-neon">
-                    <img src="https://placehold.co/250x350/1a1a1a/00ff00?text=Boyfriend" alt="Boyfriend">
-                </div>
-                <!-- Сабы -->
-                <div class="subs-container">
-                    <div class="sub-mini"><img src="https://placehold.co/50x50" alt="sub"></div>
-                    <div class="sub-mini"><img src="https://placehold.co/50x50" alt="sub"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Фон сетка -->
+    <div class="grid-background"></div>
+    <!-- Горизонтальная линия -->
+    <div class="scan-line"></div>
 
-    <!-- 2. О СТРИМЕРЕ -->
-    <section id="about" class="section-container">
-        <h2>О Стримере</h2>
-        <div class="about-wrapper glass-box">
-            <div class="about-info">
-                <p>Тут текст про Ксюшу. Люблю розовый цвет, игры и общение.</p>
-            </div>
-            <div class="about-video">
-                <!-- Вставьте сюда ID видео -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. РАСПИСАНИЕ -->
-    <section id="schedule" class="section-container">
-        <h2>Расписание</h2>
-        <div class="schedule-table glass-box" id="schedule-box">
-            <!-- Таблица генерируется или заполняется вручную, но мы сделаем красиво через CSS -->
-            <div class="day" data-day="1"><span>ПН</span> <div class="event">Выходной</div></div>
-            <div class="day" data-day="2"><span>ВТ</span> <div class="event">Хорроры 19:00</div></div>
-            <div class="day" data-day="3"><span>СР</span> <div class="event">Just Chatting</div></div>
-            <div class="day" data-day="4"><span>ЧТ</span> <div class="event">Co-op игры</div></div>
-            <div class="day" data-day="5"><span>ПТ</span> <div class="event">Мафия с сабами</div></div>
-            <div class="day" data-day="6"><span>СБ</span> <div class="event">Фильм</div></div>
-            <div class="day" data-day="0"><span>ВС</span> <div class="event">Аукцион</div></div>
-        </div>
-    </section>
-
-    <!-- 4. БИБЛИОТЕКА -->
-    <section id="library" class="section-container">
-        <h2>Коллекция</h2>
-        <div class="lib-controls">
-            <button class="lib-btn active" data-target="games">Игры</button>
-            <button class="lib-btn" data-target="movies">Кино</button>
-        </div>
+    <section class="hero-ui">
         
-        <div id="games" class="lib-grid active">
-            <div class="poster"><img src="https://placehold.co/200x300?text=Game1"></div>
-            <div class="poster"><img src="https://placehold.co/200x300?text=Game2"></div>
-            <div class="poster"><img src="https://placehold.co/200x300?text=Game3"></div>
+        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК -->
+        <div class="hud-panel left-panel">
+            <div class="panel-header">СОЮЗНИК</div>
+            <div class="content-box">
+                <div class="avatar-ring green-ring">
+                    <img src="https://placehold.co/150x150/1a1a1a/00ff41?text=TETLA" alt="Tetla">
+                </div>
+                <h3 class="name-tag">TETLA</h3>
+                <div class="stats-row">
+                    <span class="label">СТАТУС:</span>
+                    <span class="value green-text">В СЕТИ</span>
+                </div>
+                <div class="stats-row">
+                    <span class="label">РОЛЬ:</span>
+                    <span class="value">ПОДДЕРЖКА</span>
+                </div>
+            </div>
+            <div class="corner-decor bottom-left"></div>
         </div>
+
+        <!-- ЦЕНТР: СТРИМЕР (РАДАР) -->
+        <div class="center-radar">
+            <div class="radar-circles">
+                <div class="circle c1"></div>
+                <div class="circle c2"></div>
+                <div class="circle c3"></div>
+            </div>
+            
+            <div class="main-avatar">
+                <img src="https://placehold.co/300x300/1a1a1a/ff0055?text=KSUSHA" alt="Ksusha">
+                <div class="glitch-overlay"></div>
+            </div>
+
+            <div class="live-status">
+                <span class="dot"></span> ПРЯМАЯ<br>ТРАНСЛЯЦИЯ
+            </div>
+        </div>
+
+        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД -->
+        <div class="hud-panel right-panel">
+            <div class="panel-header">ОТРЯД</div>
+            <div class="content-box">
+                <h4 class="sub-header">ГРУППА ПОДДЕРЖКИ</h4>
+                <div class="squad-icons">
+                    <div class="squad-member">
+                        <img src="https://placehold.co/60" alt="Sub1">
+                        <span>BAGERco</span>
+                    </div>
+                    <div class="squad-member">
+                        <img src="https://placehold.co/60" alt="Sub2">
+                        <span>Angel</span>
+                    </div>
+                    <div class="squad-member">
+                        <img src="https://placehold.co/60" alt="Sub3">
+                        <span>Kiriki</span>
+                    </div>
+                </div>
+                <div class="stats-row sync-row">
+                    <span class="label">СИНХРОНИЗАЦИЯ:</span>
+                    <span class="value green-text">100%</span>
+                </div>
+            </div>
+            <div class="corner-decor bottom-right"></div>
+        </div>
+
+    </section>
+
+    <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК И КНОПКИ -->
+    <div class="bottom-ui">
+        <h1 class="system-title glitch" data-text="SYSTEM ONLINE: KSUSHA SHER">SYSTEM ONLINE: KSUSHA SHER</h1>
         
-        <div id="movies" class="lib-grid hidden">
-            <div class="poster"><img src="https://placehold.co/200x300?text=Movie1"></div>
-            <div class="poster"><img src="https://placehold.co/200x300?text=Movie2"></div>
+        <div class="action-buttons">
+            <a href="#" class="hud-btn"><i class="fab fa-twitch"></i> ПОДКЛЮЧИТЬСЯ К СТРИМУ</a>
+            <a href="#" class="hud-btn outline"><i class="fab fa-telegram"></i> КАНАЛ СВЯЗИ</a>
         </div>
-    </section>
+    </div>
 
-    <!-- 5. СТАТИСТИКА -->
-    <section id="stats" class="section-container">
-        <h2>Характеристики</h2>
-        <div class="chart-wrapper glass-box">
-            <canvas id="radarChart"></canvas>
-        </div>
-    </section>
-
-    <!-- 6. КОМПЛЕКТУЮЩИЕ -->
-    <section id="specs" class="section-container">
-        <h2>Setup</h2>
-        <div class="specs-grid">
-            <div class="spec-card">
-                <i class="fas fa-laptop neon-icon-pink"></i>
-                <span>MSI Raider GE76</span>
-            </div>
-            <div class="spec-card">
-                <i class="fas fa-microchip neon-icon-green"></i>
-                <span>i9-12900HK</span>
-            </div>
-            <div class="spec-card">
-                <i class="fas fa-memory neon-icon-pink"></i>
-                <span>RTX 3080 Ti</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. ПОДДЕРЖКА -->
-    <section id="donate" class="section-container">
-        <h2>Support</h2>
-        <div class="donate-btns">
-            <a href="#" class="don-btn pink">DonationAlerts</a>
-            <a href="#" class="don-btn green">Boosty</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="socials">
-            <a href="#"><i class="fab fa-twitch"></i></a>
-            <a href="#"><i class="fab fa-telegram"></i></a>
-        </div>
-    </footer>
-
-    <!-- Библиотека графиков -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Подключение скриптов по разделам -->
-    <script src="js/hero.js"></script>
-    <script src="js/schedule.js"></script>
-    <script src="js/library.js"></script>
-    <script src="js/stats.js"></script>
 </body>
 </html>
