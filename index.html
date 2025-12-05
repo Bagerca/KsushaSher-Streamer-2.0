@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1 class="system-title glitch">SYSTEM ONLINE: <span class="neon-text">KSUSHA SHER</span></h1>
+    <title>SYSTEM ONLINE: KSUSHA</title>
+    <!-- Иконки -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/hero.css">
 </head>
@@ -13,17 +15,18 @@
 
     <!-- Фон сетка -->
     <div class="grid-background"></div>
-    <!-- Горизонтальная линия -->
+    <!-- Сканирующая линия -->
     <div class="scan-line"></div>
 
     <section class="hero-ui">
         
-        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК -->
+        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК (TETLA) -->
         <div class="hud-panel left-panel">
             <div class="panel-header">СОЮЗНИК</div>
             <div class="content-box">
                 <div class="avatar-ring green-ring">
-                    <img src="https://placehold.co/150x150/1a1a1a/00ff41?text=TETLA" alt="Tetla">
+                    <!-- Фото парня -->
+                    <img src="assets/images/tetlabot.jpg" alt="Tetla">
                 </div>
                 <h3 class="name-tag">TETLA</h3>
                 <div class="stats-row">
@@ -35,10 +38,9 @@
                     <span class="value">ПОДДЕРЖКА</span>
                 </div>
             </div>
-            <div class="corner-decor bottom-left"></div>
         </div>
 
-        <!-- ЦЕНТР: СТРИМЕР (РАДАР) -->
+        <!-- ЦЕНТР: СТРИМЕР (KSUSHA) -->
         <div class="center-radar">
             <div class="radar-circles">
                 <div class="circle c1"></div>
@@ -47,8 +49,8 @@
             </div>
             
             <div class="main-avatar">
-                <img src="https://placehold.co/300x300/1a1a1a/ff0055?text=KSUSHA" alt="Ksusha">
-                <div class="glitch-overlay"></div>
+                <!-- Фото стримера -->
+                <img src="assets/images/ksusha.jpg" alt="Ksusha">
             </div>
 
             <div class="live-status">
@@ -56,42 +58,42 @@
             </div>
         </div>
 
-        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД -->
+        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД (ПОДПИСЧИКИ) -->
         <div class="hud-panel right-panel">
             <div class="panel-header">ОТРЯД</div>
             <div class="content-box">
-                <h4 class="sub-header">ГРУППА ПОДДЕРЖКИ</h4>
+                <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc;">VIP SUB UNIT</h4>
+                
                 <div class="squad-icons">
+                    <!-- Подписчик 1: Bager -->
                     <div class="squad-member">
-                        <img src="https://placehold.co/60" alt="Sub1">
-                        <span>BAGERco</span>
+                        <img src="assets/images/bager.jpg" alt="Bager">
+                        <span style="display:block; margin-top:5px; font-family: var(--font-tech);">BAGERco</span>
                     </div>
+                    
+                    <!-- Подписчик 2: Kiriki -->
                     <div class="squad-member">
-                        <img src="https://placehold.co/60" alt="Sub2">
-                        <span>Angel</span>
-                    </div>
-                    <div class="squad-member">
-                        <img src="https://placehold.co/60" alt="Sub3">
-                        <span>Kiriki</span>
+                        <img src="assets/images/kiriki.jpg" alt="Kiriki">
+                        <span style="display:block; margin-top:5px; font-family: var(--font-tech);">Kiriki</span>
                     </div>
                 </div>
-                <div class="stats-row sync-row">
+
+                <div class="stats-row sync-row" style="margin-top: 25px;">
                     <span class="label">СИНХРОНИЗАЦИЯ:</span>
                     <span class="value green-text">100%</span>
                 </div>
             </div>
-            <div class="corner-decor bottom-right"></div>
         </div>
 
     </section>
 
     <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК И КНОПКИ -->
     <div class="bottom-ui">
-        <h1 class="system-title glitch" data-text="SYSTEM ONLINE: KSUSHA SHER">SYSTEM ONLINE: KSUSHA SHER</h1>
+        <h1 class="system-title">SYSTEM ONLINE: <span class="neon-text">KSUSHA SHER</span></h1>
         
         <div class="action-buttons">
-            <a href="#" class="hud-btn"><i class="fab fa-twitch"></i> ПОДКЛЮЧИТЬСЯ К СТРИМУ</a>
-            <a href="#" class="hud-btn outline"><i class="fab fa-telegram"></i> КАНАЛ СВЯЗИ</a>
+            <a href="#" class="hud-btn"><i class="fab fa-twitch"></i> STREAM</a>
+            <a href="#" class="hud-btn outline"><i class="fab fa-telegram"></i> TELEGRAM</a>
         </div>
     </div>
 
