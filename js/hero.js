@@ -13,7 +13,6 @@ let isDeleting = false;
 
 function typeEffect() {
     const currentPhrase = phrases[phraseIndex];
-    
     if (isDeleting) {
         typingText.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -21,24 +20,18 @@ function typeEffect() {
         typingText.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
     }
-
     let typeSpeed = isDeleting ? 50 : 100;
-
     if (!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 2000; 
-        isDeleting = true;
+        typeSpeed = 2000; isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500;
+        isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500;
     }
-
     setTimeout(typeEffect, typeSpeed);
 }
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
-// --- 2. ЛОГИКА ПРАВОЙ ПАНЕЛИ (ОТРЯД) ---
+// --- 2. ЛОГИКА ТРАНСФОРМАЦИИ ПАНЕЛИ ---
 const subscribersData = {
     'bager': {
         name: 'BAGERca',
@@ -63,9 +56,8 @@ const dImg = document.getElementById('d-img');
 const dName = document.getElementById('d-name');
 const dDesc = document.getElementById('d-desc');
 
-let descInterval; // Таймер для описания
+let descInterval; 
 
-// Функция печати описания
 function typeWriterDesc(text) {
     dDesc.textContent = '';
     let i = 0;
@@ -77,53 +69,56 @@ function typeWriterDesc(text) {
     }, 30);
 }
 
-// ОТКРЫТЬ ПРОФИЛЬ (ВКЛЮЧИТЬ РОЗОВЫЙ РЕЖИМ)
+// ОТКРЫТЬ ПРОФИЛЬ (MORPH IN)
 function showSubscriber(id) {
     const data = subscribersData[id];
     if (data) {
-        // 1. Меняем стиль панели на розовый
+        // 1. Старт трансформации: Панель растет и меняет цвет
         panelBox.classList.add('pink-mode');
 
-        // 2. Меняем заголовок
+        // 2. Смена заголовка
         defaultHeader.style.display = 'none';
         backHeader.style.display = 'flex';
 
-        // 3. Заполняем данные
+        // 3. Данные
         dImg.src = data.img;
         dName.textContent = data.name;
 
-        // 4. Скрываем список
+        // 4. Скрываем список (Можно добавить класс для fade out, но display:none сработает жестко, зато рамка сгладит)
         listView.style.display = 'none';
         
-        // 5. Перезапускаем блок деталей (для CSS-анимаций)
-        detailView.style.display = 'none';
+        // 5. Показываем детали (Анимация Morph запустится CSS-ом)
+        detailView.style.display = 'none'; // сброс
+        
+        // Маленькая задержка, чтобы дать рамке начать расти
         setTimeout(() => {
-            detailView.style.display = 'block';
-            // Запускаем печать описания
-            setTimeout(() => typeWriterDesc(data.desc), 300);
-        }, 10);
+            detailView.style.display = 'flex'; // используем flex для центровки
+            // Запускаем печать текста с задержкой, пока идет анимация аватара
+            setTimeout(() => typeWriterDesc(data.desc), 400);
+        }, 50);
     }
 }
 
-// ВЕРНУТЬСЯ К СПИСКУ (ВКЛЮЧИТЬ ЗЕЛЕНЫЙ РЕЖИМ)
+// ВЕРНУТЬСЯ НАЗАД (MORPH OUT)
 function showList() {
-    // 1. Убираем розовый режим
+    // 1. Сжимаем рамку обратно
     panelBox.classList.remove('pink-mode');
 
-    // 2. Возвращаем заголовок
+    // 2. Заголовок
     backHeader.style.display = 'none';
     defaultHeader.style.display = 'flex';
 
-    // Останавливаем печать
     clearInterval(descInterval);
     
     // 3. Скрываем детали
     detailView.style.display = 'none';
-    listView.style.display = 'none';
     
-    // 4. Показываем список с анимацией
+    // 4. Показываем список
+    // Небольшая задержка для плавности возврата
     setTimeout(() => {
         listView.style.display = 'block';
-        listView.style.animation = 'fadeInText 0.4s ease forwards';
-    }, 10);
+        // Добавляем класс анимации появления, если нужно, или полагаемся на дефолт
+        listView.style.opacity = 0;
+        listView.style.animation = 'fadeIn 0.5s forwards';
+    }, 100);
 }
