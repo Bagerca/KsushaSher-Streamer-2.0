@@ -41,7 +41,7 @@ function typeEffect() {
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
-// --- 2. ПЕРЕКЛЮЧЕНИЕ ВНУТРИ ПАНЕЛИ ПОДПИСЧИКОВ ---
+// --- 2. ПЕРЕКЛЮЧЕНИЕ ИНТЕРФЕЙСА ОТРЯДА ---
 const subscribersData = {
     'bager': {
         name: 'BAGERca',
@@ -62,21 +62,38 @@ const dImg = document.getElementById('d-img');
 const dName = document.getElementById('d-name');
 const dDesc = document.getElementById('d-desc');
 
-// Показать информацию о подписчике
+// Функция: Открыть профиль подписчика с анимацией
 function showSubscriber(id) {
     const data = subscribersData[id];
     if (data) {
+        // 1. Заполняем данные
         dImg.src = data.img;
         dName.textContent = data.name;
         dDesc.textContent = data.desc;
 
+        // 2. Скрываем список
         listView.style.display = 'none';
-        detailView.style.display = 'block';
+
+        // 3. Сбрасываем дисплей, чтобы перезапустить анимацию
+        detailView.style.display = 'none';
+        
+        // Небольшая задержка для перезапуска CSS-анимаций
+        setTimeout(() => {
+            detailView.style.display = 'block';
+        }, 10);
     }
 }
 
-// Вернуться к списку
+// Функция: Вернуться к списку
 function showList() {
+    // Скрываем детали
     detailView.style.display = 'none';
-    listView.style.display = 'block';
+    
+    // Показываем список с легкой задержкой
+    listView.style.display = 'none';
+    setTimeout(() => {
+        listView.style.display = 'block';
+        // Добавляем простую анимацию появления списка
+        listView.style.animation = 'fadeInText 0.3s ease forwards';
+    }, 10);
 }
