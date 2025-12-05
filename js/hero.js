@@ -1,4 +1,4 @@
-// --- 1. ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ ---
+// --- 1. ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ (НИЖНИЙ ЗАГОЛОВОК) ---
 const typingText = document.getElementById('typing-text');
 
 const phrases = [
@@ -37,11 +37,10 @@ function typeEffect() {
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Запуск при загрузке
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
-// --- 2. ПЕРЕКЛЮЧЕНИЕ ИНТЕРФЕЙСА ОТРЯДА ---
+// --- 2. ПЕРЕКЛЮЧЕНИЕ ПРОФИЛЕЙ (С ПЕЧАТАНИЕМ ОПИСАНИЯ) ---
 const subscribersData = {
     'bager': {
         name: 'BAGERca',
@@ -62,38 +61,59 @@ const dImg = document.getElementById('d-img');
 const dName = document.getElementById('d-name');
 const dDesc = document.getElementById('d-desc');
 
-// Функция: Открыть профиль подписчика с анимацией
+let descInterval; // Переменная для таймера печатания описания
+
+// Функция печатания текста описания
+function typeWriterDesc(text) {
+    dDesc.textContent = ''; // Очищаем
+    let i = 0;
+    
+    // Останавливаем предыдущую печать, если она была
+    clearInterval(descInterval);
+    
+    // Начинаем новую
+    descInterval = setInterval(() => {
+        dDesc.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length) {
+            clearInterval(descInterval);
+        }
+    }, 30); // Скорость печати (чем меньше, тем быстрее)
+}
+
+// Открыть профиль
 function showSubscriber(id) {
     const data = subscribersData[id];
     if (data) {
-        // 1. Заполняем данные
+        // Заполняем картинку и имя
         dImg.src = data.img;
         dName.textContent = data.name;
-        dDesc.textContent = data.desc;
-
-        // 2. Скрываем список
-        listView.style.display = 'none';
-
-        // 3. Сбрасываем дисплей, чтобы перезапустить анимацию
-        detailView.style.display = 'none';
         
-        // Небольшая задержка для перезапуска CSS-анимаций
+        // Описание не заполняем сразу, а запускаем машинку
+        // Но делаем небольшую задержку (400мс), чтобы имя успело выехать
+        setTimeout(() => {
+            typeWriterDesc(data.desc);
+        }, 400);
+
+        // Переключение видов
+        listView.style.display = 'none';
+        
+        // Перезапуск анимации блока
+        detailView.style.display = 'none';
         setTimeout(() => {
             detailView.style.display = 'block';
         }, 10);
     }
 }
 
-// Функция: Вернуться к списку
+// Вернуться назад
 function showList() {
-    // Скрываем детали
+    clearInterval(descInterval); // Остановить печать, если не допечатало
     detailView.style.display = 'none';
     
-    // Показываем список с легкой задержкой
     listView.style.display = 'none';
     setTimeout(() => {
         listView.style.display = 'block';
-        // Добавляем простую анимацию появления списка
         listView.style.animation = 'fadeInText 0.3s ease forwards';
     }, 10);
 }
