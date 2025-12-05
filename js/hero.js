@@ -1,6 +1,5 @@
-// --- 1. ЭФФЕКТ ПЕЧАТНОЙ МАШИНКИ (НИЖНИЙ ЗАГОЛОВОК) ---
+// --- 1. ПЕЧАТНАЯ МАШИНКА (СТАТИСТИКА) ---
 const typingText = document.getElementById('typing-text');
-
 const phrases = [
     "ПОДПИСЧИКОВ: 5.2K+",
     "ЛОЯЛЬНОСТЬ АУДИТОРИИ: 95%",
@@ -36,11 +35,10 @@ function typeEffect() {
 
     setTimeout(typeEffect, typeSpeed);
 }
-
 document.addEventListener('DOMContentLoaded', typeEffect);
 
 
-// --- 2. ПЕРЕКЛЮЧЕНИЕ ПРОФИЛЕЙ (С ПЕЧАТАНИЕМ ОПИСАНИЯ) ---
+// --- 2. ЛОГИКА ПРАВОЙ ПАНЕЛИ (ОТРЯД) ---
 const subscribersData = {
     'bager': {
         name: 'BAGERca',
@@ -54,6 +52,10 @@ const subscribersData = {
     }
 };
 
+const panelBox = document.getElementById('right-panel-box'); 
+const defaultHeader = document.getElementById('default-header'); 
+const backHeader = document.getElementById('back-header'); 
+
 const listView = document.getElementById('sub-list-view');
 const detailView = document.getElementById('sub-detail-view');
 
@@ -61,59 +63,67 @@ const dImg = document.getElementById('d-img');
 const dName = document.getElementById('d-name');
 const dDesc = document.getElementById('d-desc');
 
-let descInterval; // Переменная для таймера печатания описания
+let descInterval; // Таймер для описания
 
-// Функция печатания текста описания
+// Функция печати описания
 function typeWriterDesc(text) {
-    dDesc.textContent = ''; // Очищаем
+    dDesc.textContent = '';
     let i = 0;
-    
-    // Останавливаем предыдущую печать, если она была
     clearInterval(descInterval);
-    
-    // Начинаем новую
     descInterval = setInterval(() => {
         dDesc.textContent += text.charAt(i);
         i++;
-        if (i >= text.length) {
-            clearInterval(descInterval);
-        }
-    }, 30); // Скорость печати (чем меньше, тем быстрее)
+        if (i >= text.length) clearInterval(descInterval);
+    }, 30);
 }
 
-// Открыть профиль
+// ОТКРЫТЬ ПРОФИЛЬ (ВКЛЮЧИТЬ РОЗОВЫЙ РЕЖИМ)
 function showSubscriber(id) {
     const data = subscribersData[id];
     if (data) {
-        // Заполняем картинку и имя
+        // 1. Меняем стиль панели на розовый
+        panelBox.classList.add('pink-mode');
+
+        // 2. Меняем заголовок
+        defaultHeader.style.display = 'none';
+        backHeader.style.display = 'flex';
+
+        // 3. Заполняем данные
         dImg.src = data.img;
         dName.textContent = data.name;
-        
-        // Описание не заполняем сразу, а запускаем машинку
-        // Но делаем небольшую задержку (400мс), чтобы имя успело выехать
-        setTimeout(() => {
-            typeWriterDesc(data.desc);
-        }, 400);
 
-        // Переключение видов
+        // 4. Скрываем список
         listView.style.display = 'none';
         
-        // Перезапуск анимации блока
+        // 5. Перезапускаем блок деталей (для CSS-анимаций)
         detailView.style.display = 'none';
         setTimeout(() => {
             detailView.style.display = 'block';
+            // Запускаем печать описания
+            setTimeout(() => typeWriterDesc(data.desc), 300);
         }, 10);
     }
 }
 
-// Вернуться назад
+// ВЕРНУТЬСЯ К СПИСКУ (ВКЛЮЧИТЬ ЗЕЛЕНЫЙ РЕЖИМ)
 function showList() {
-    clearInterval(descInterval); // Остановить печать, если не допечатало
-    detailView.style.display = 'none';
+    // 1. Убираем розовый режим
+    panelBox.classList.remove('pink-mode');
+
+    // 2. Возвращаем заголовок
+    backHeader.style.display = 'none';
+    defaultHeader.style.display = 'flex';
+
+    // Останавливаем печать
+    clearInterval(descInterval);
     
+    // 3. Скрываем детали
+    detailView.style.display = 'none';
     listView.style.display = 'none';
+    
+    // 4. Показываем список с анимацией
     setTimeout(() => {
         listView.style.display = 'block';
-        listView.style.animation = 'fadeInText 0.3s ease forwards';
+        listView.style.animation = 'fadeInText 0.4s ease forwards';
     }, 10);
 }
