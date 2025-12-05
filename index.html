@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM ONLINE: KSUSHA</title>
-    <!-- Иконки -->
+    
+    <!-- Иконки (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Подключение стилей -->
@@ -13,19 +14,17 @@
 </head>
 <body>
 
-    <!-- Фон сетка -->
+    <!-- ФОН: Сетка и Сканирующая линия -->
     <div class="grid-background"></div>
-    <!-- Сканирующая линия -->
     <div class="scan-line"></div>
 
     <section class="hero-ui">
         
-        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК (TETLA) -->
+        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК -->
         <div class="hud-panel left-panel">
             <div class="panel-header">СОЮЗНИК</div>
             <div class="content-box">
                 <div class="avatar-ring green-ring">
-                    <!-- Фото парня -->
                     <img src="assets/images/tetlabot.jpg" alt="Tetla">
                 </div>
                 <h3 class="name-tag">TETLA</h3>
@@ -40,7 +39,7 @@
             </div>
         </div>
 
-        <!-- ЦЕНТР: СТРИМЕР (KSUSHA) -->
+        <!-- ЦЕНТР: РАДАР И СТРИМЕР -->
         <div class="center-radar">
             <div class="radar-circles">
                 <div class="circle c1"></div>
@@ -49,7 +48,6 @@
             </div>
             
             <div class="main-avatar">
-                <!-- Фото стримера -->
                 <img src="assets/images/ksusha.jpg" alt="Ksusha">
             </div>
 
@@ -58,20 +56,20 @@
             </div>
         </div>
 
-        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД (ПОДПИСЧИКИ) -->
+        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД -->
         <div class="hud-panel right-panel">
             <div class="panel-header">ОТРЯД</div>
             <div class="content-box">
-                <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc;">VIP SUB UNIT</h4>
+                <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc; font-size: 0.9rem;">VIP SUB UNIT</h4>
                 
                 <div class="squad-icons">
-                    <!-- Подписчик 1: Bager -->
+                    <!-- Подписчик 1 -->
                     <div class="squad-member">
                         <img src="assets/images/bager.jpg" alt="Bager">
                         <span style="display:block; margin-top:5px; font-family: var(--font-tech);">BAGERco</span>
                     </div>
                     
-                    <!-- Подписчик 2: Kiriki -->
+                    <!-- Подписчик 2 -->
                     <div class="squad-member">
                         <img src="assets/images/kiriki.jpg" alt="Kiriki">
                         <span style="display:block; margin-top:5px; font-family: var(--font-tech);">Kiriki</span>
@@ -87,15 +85,22 @@
 
     </section>
 
-    <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК И КНОПКИ -->
+    <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК, ТЕКСТ-МАШИНКА И КНОПКИ -->
     <div class="bottom-ui">
         <h1 class="system-title">SYSTEM ONLINE: <span class="neon-text">KSUSHA SHER</span></h1>
         
+        <!-- Эффект печатной машинки -->
+        <div class="subtitle-container">
+            <span id="typing-text"></span><span class="cursor">|</span>
+        </div>
+
         <div class="action-buttons">
             <a href="#" class="hud-btn"><i class="fab fa-twitch"></i> STREAM</a>
             <a href="#" class="hud-btn outline"><i class="fab fa-telegram"></i> TELEGRAM</a>
         </div>
     </div>
 
+    <!-- Скрипт для анимации текста -->
+    <script src="js/hero.js"></script>
 </body>
 </html>
