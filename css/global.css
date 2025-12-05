@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&family=Share+Tech+Mono&display=swap');
 
 :root {
-    --bg-dark: #02040a; /* Глубокий черный/синий */
-    --neon-green: #00ff41; /* Хакерский зеленый */
-    --neon-pink: #ff0055; /* Агрессивный розовый */
-    --glass: rgba(0, 255, 65, 0.05);
+    --bg-dark: #05070a; 
+    /* Яркий кислотный зеленый */
+    --neon-green: #00ff41; 
+    /* Настоящий неоновый розовый (Hot Magenta) */
+    --neon-pink: #ff00ff; 
     
-    --font-ui: 'Orbitron', sans-serif;       /* Заголовки */
-    --font-tech: 'Share Tech Mono', monospace; /* Цифры и мелкий текст */
-    --font-body: 'Rajdhani', sans-serif;     /* Тексты */
+    --font-ui: 'Orbitron', sans-serif;
+    --font-tech: 'Share Tech Mono', monospace;
+    --font-body: 'Rajdhani', sans-serif;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Эффект сетки на фоне (как на скрине) */
+/* СЕТКА ФОНА */
 .grid-background {
     position: fixed;
     top: 0;
@@ -27,22 +28,34 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
     z-index: -1;
     pointer-events: none;
 }
 
-/* Зеленая линия горизонта (сканирующая линия) */
+/* СКАНИРУЮЩАЯ ЛИНИЯ (АНИМИРОВАННАЯ) */
 .scan-line {
     position: absolute;
-    top: 55%; /* Чуть ниже центра, как на фото */
-    left: 0;
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
-    box-shadow: 0 0 10px var(--neon-green);
-    opacity: 0.5;
+    box-shadow: 0 0 15px var(--neon-green); /* Сильное свечение */
+    opacity: 0.8;
     z-index: 0;
+    /* Анимация движения вверх-вниз */
+    animation: scanMove 6s ease-in-out infinite;
 }
+
+@keyframes scanMove {
+    0% { top: 10%; opacity: 0; }
+    10% { opacity: 1; }
+    50% { top: 60%; opacity: 0.8; } /* Замедляется в центре */
+    90% { opacity: 1; }
+    100% { top: 90%; opacity: 0; }
+}
+
+/* Глобальный класс для неонового текста */
+.text-glow-green { text-shadow: 0 0 10px var(--neon-green); }
+.text-glow-pink { text-shadow: 0 0 15px var(--neon-pink); }
