@@ -3,293 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ksusha Sher - Стример</title>
+    <title>KSUSHA__SHER | Official</title>
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/cursor.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/schedule.css">
-    <link rel="stylesheet" href="css/games.css">
-    <link rel="stylesheet" href="css/stats.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/expanding-dots.css">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Шрифты и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="theme-default">
-    <!-- Кастомный курсор -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
-    
-    <!-- Expanding Dots -->
-    <div class="expanding-dots" id="expandingDots">
-        <div class="main-dot" id="mainDot">
-            <i class="fas fa-cog"></i>
-        </div>
-        <div class="dot-option theme-option" data-theme="default" title="Основная тема">
-            <i class="fas fa-palette"></i>
-        </div>
-        <div class="dot-option theme-option" data-theme="halloween" title="Хэллоуин">
-            <i class="fas fa-ghost"></i>
-        </div>
-        <div class="dot-option theme-option" data-theme="newyear" title="Новый год">
-            <i class="fas fa-snowflake"></i>
-        </div>
-        <div class="dot-option music-option" title="Музыка">
-            <i class="fas fa-music"></i>
-        </div>
-        <div class="dot-option fireworks-option" title="Салют">
-            <i class="fas fa-fire"></i>
-        </div>
-    </div>
 
-    <!-- Hero секция -->
-    <section class="hero" id="hero">
-        <div class="yin-yang-container">
-            <div class="yin-yang">
-                <div class="yin">
-                    <img src="assets/images/ksusha.jpg" alt="Ksusha Sher" class="avatar">
+    <!-- Подключение всех стилей по очереди -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="css/specs.css">
+    <link rel="stylesheet" href="css/donate.css">
+</head>
+<body>
+
+    <!-- 1. HERO (Приветствие) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 id="hero-title">KSUSHA__SHER</h1>
+            <div class="hero-cards">
+                <!-- Стримерша -->
+                <div class="card pink-neon">
+                    <img src="https://placehold.co/300x400/1a1a1a/ff00ff?text=Ksusha" alt="Ksusha">
                 </div>
-                <div class="yang">
-                    <img src="assets/images/tetlabot.jpg" alt="TetlaBot" class="avatar">
+                <!-- Парень -->
+                <div class="card green-neon">
+                    <img src="https://placehold.co/250x350/1a1a1a/00ff00?text=Boyfriend" alt="Boyfriend">
                 </div>
-                <div class="dot yin-dot"></div>
-                <div class="dot yang-dot"></div>
+                <!-- Сабы -->
+                <div class="subs-container">
+                    <div class="sub-mini"><img src="https://placehold.co/50x50" alt="sub"></div>
+                    <div class="sub-mini"><img src="https://placehold.co/50x50" alt="sub"></div>
+                </div>
             </div>
-            
-            <!-- Орбиты с подписчиками -->
-            <div class="orbit orbit-1">
-                <div class="subscriber" data-user="bager">
-                    <img src="assets/images/bager.jpg" alt="BAGERca">
-                    <div class="subscriber-glow"></div>
-                </div>
+        </div>
+    </section>
+
+    <!-- 2. О СТРИМЕРЕ -->
+    <section id="about" class="section-container">
+        <h2>О Стримере</h2>
+        <div class="about-wrapper glass-box">
+            <div class="about-info">
+                <p>Тут текст про Ксюшу. Люблю розовый цвет, игры и общение.</p>
             </div>
-            
-            <div class="orbit orbit-2">
-                <div class="subscriber" data-user="tobeangle">
-                    <img src="assets/images/tobeangle.jpg" alt="To Be Angle">
-                    <div class="subscriber-glow"></div>
-                </div>
-                <div class="subscriber" data-user="kiriki">
-                    <img src="assets/images/kiriki.jpg" alt="Kiriki">
-                    <div class="subscriber-glow"></div>
-                </div>
+            <div class="about-video">
+                <!-- Вставьте сюда ID видео -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
             </div>
-            
-            <div class="orbit orbit-3">
-                <!-- Дополнительные подписчики могут быть добавлены здесь -->
-            </div>
+        </div>
+    </section>
+
+    <!-- 3. РАСПИСАНИЕ -->
+    <section id="schedule" class="section-container">
+        <h2>Расписание</h2>
+        <div class="schedule-table glass-box" id="schedule-box">
+            <!-- Таблица генерируется или заполняется вручную, но мы сделаем красиво через CSS -->
+            <div class="day" data-day="1"><span>ПН</span> <div class="event">Выходной</div></div>
+            <div class="day" data-day="2"><span>ВТ</span> <div class="event">Хорроры 19:00</div></div>
+            <div class="day" data-day="3"><span>СР</span> <div class="event">Just Chatting</div></div>
+            <div class="day" data-day="4"><span>ЧТ</span> <div class="event">Co-op игры</div></div>
+            <div class="day" data-day="5"><span>ПТ</span> <div class="event">Мафия с сабами</div></div>
+            <div class="day" data-day="6"><span>СБ</span> <div class="event">Фильм</div></div>
+            <div class="day" data-day="0"><span>ВС</span> <div class="event">Аукцион</div></div>
+        </div>
+    </section>
+
+    <!-- 4. БИБЛИОТЕКА -->
+    <section id="library" class="section-container">
+        <h2>Коллекция</h2>
+        <div class="lib-controls">
+            <button class="lib-btn active" data-target="games">Игры</button>
+            <button class="lib-btn" data-target="movies">Кино</button>
         </div>
         
-        <!-- Панель информации о подписчике -->
-        <div class="subscriber-info-panel" id="subscriberInfo">
-            <div class="subscriber-header">
-                <img src="" alt="Аватар" class="subscriber-avatar" id="subscriberAvatar">
-                <div class="subscriber-text">
-                    <h3 class="subscriber-name" id="subscriberName">Имя подписчика</h3>
-                    <p class="subscriber-role" id="subscriberRole">Роль в комьюнити</p>
-                </div>
+        <div id="games" class="lib-grid active">
+            <div class="poster"><img src="https://placehold.co/200x300?text=Game1"></div>
+            <div class="poster"><img src="https://placehold.co/200x300?text=Game2"></div>
+            <div class="poster"><img src="https://placehold.co/200x300?text=Game3"></div>
+        </div>
+        
+        <div id="movies" class="lib-grid hidden">
+            <div class="poster"><img src="https://placehold.co/200x300?text=Movie1"></div>
+            <div class="poster"><img src="https://placehold.co/200x300?text=Movie2"></div>
+        </div>
+    </section>
+
+    <!-- 5. СТАТИСТИКА -->
+    <section id="stats" class="section-container">
+        <h2>Характеристики</h2>
+        <div class="chart-wrapper glass-box">
+            <canvas id="radarChart"></canvas>
+        </div>
+    </section>
+
+    <!-- 6. КОМПЛЕКТУЮЩИЕ -->
+    <section id="specs" class="section-container">
+        <h2>Setup</h2>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <i class="fas fa-laptop neon-icon-pink"></i>
+                <span>MSI Raider GE76</span>
             </div>
-            <p class="subscriber-description" id="subscriberDescription">Описание подписчика...</p>
-            <div class="subscriber-stats">
-                <div class="stat">
-                    <span class="stat-value" id="statMonths">0</span>
-                    <span class="stat-label">месяцев</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="statMessages">0</span>
-                    <span class="stat-label">сообщений</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value" id="statStreams">0</span>
-                    <span class="stat-label">стримов</span>
-                </div>
+            <div class="spec-card">
+                <i class="fas fa-microchip neon-icon-green"></i>
+                <span>i9-12900HK</span>
+            </div>
+            <div class="spec-card">
+                <i class="fas fa-memory neon-icon-pink"></i>
+                <span>RTX 3080 Ti</span>
             </div>
         </div>
     </section>
 
-    <!-- Секция расписания -->
-    <section class="schedule-section" id="schedule">
-        <div class="container">
-            <h2 class="section-title">Расписание стримов</h2>
-            <div class="schedule-table">
-                <div class="schedule-header">
-                    <div class="schedule-cell">День недели</div>
-                    <div class="schedule-cell">Время</div>
-                    <div class="schedule-cell">Игра/Активность</div>
-                    <div class="schedule-cell">Описание</div>
-                    <div class="schedule-cell">Статус</div>
-                </div>
-                <div class="schedule-body" id="scheduleBody">
-                    <!-- Расписание будет загружено через JS -->
-                </div>
-            </div>
+    <!-- 7. ПОДДЕРЖКА -->
+    <section id="donate" class="section-container">
+        <h2>Support</h2>
+        <div class="donate-btns">
+            <a href="#" class="don-btn pink">DonationAlerts</a>
+            <a href="#" class="don-btn green">Boosty</a>
         </div>
     </section>
 
-    <!-- Секция игр и фильмов -->
-    <section class="games-section" id="games">
-        <div class="container">
-            <h2 class="section-title">Игры и фильмы</h2>
-            
-            <div class="content-tabs">
-                <div class="tab active" data-tab="games">Игры</div>
-                <div class="tab" data-tab="movies">Фильмы</div>
-            </div>
-            
-            <div class="filters-container">
-                <div class="filter-group">
-                    <label>Статус:</label>
-                    <select id="statusFilter">
-                        <option value="all">Все</option>
-                        <option value="completed">Пройдено/Посмотрено</option>
-                        <option value="playing">Проходим/Смотрим</option>
-                        <option value="dropped">Брошено</option>
-                        <option value="on-hold">Под вопросом</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label>Жанр:</label>
-                    <select id="genreFilter">
-                        <option value="all">Все</option>
-                        <!-- Опции будут заполнены через JS -->
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label>Сортировка:</label>
-                    <select id="sortFilter">
-                        <option value="name">По названию</option>
-                        <option value="rating">По рейтингу</option>
-                        <option value="recent">По дате</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="content-container">
-                <div class="content active" id="gamesContent">
-                    <div class="cards-grid" id="gamesGrid">
-                        <!-- Карточки игр будут загружены через JS -->
-                    </div>
-                </div>
-                
-                <div class="content" id="moviesContent">
-                    <div class="cards-grid" id="moviesGrid">
-                        <!-- Карточки фильмов будут загружены через JS -->
-                    </div>
-                </div>
-            </div>
-            
-            <button class="toggle-expand" id="toggleExpand">
-                <span>Развернуть</span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
+    <!-- FOOTER -->
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fab fa-twitch"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
         </div>
-    </section>
+    </footer>
 
-    <!-- Секция статистики -->
-    <section class="stats-section" id="stats">
-        <div class="container">
-            <h2 class="section-title">Статистика канала</h2>
-            <div class="stats-container">
-                <div class="radar-container">
-                    <canvas id="radarChart"></canvas>
-                    <div class="radar-center">
-                        <div class="center-value" id="centerValue">3+</div>
-                        <div class="center-label">года опыта</div>
-                    </div>
-                </div>
-                
-                <div class="stats-cards">
-                    <div class="stat-card">
-                        <div class="stat-icon">👥</div>
-                        <div class="stat-content">
-                            <h3 id="followersCount">5.2K+</h3>
-                            <p>Подписчиков</p>
-                            <span class="stat-trend positive">+12%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">📡</div>
-                        <div class="stat-content">
-                            <h3 id="streamsCount">154</h3>
-                            <p>Стримов</p>
-                            <span class="stat-trend positive">3.2/нед</span>
-                        </div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-content">
-                            <h3 id="hoursCount">1,000+</h3>
-                            <p>Часов контента</p>
-                            <span class="stat-trend positive">250ч/год</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Модальное окно для игр/фильмов -->
-    <div class="modal" id="gameModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <div class="modal-media">
-                    <img src="" alt="Обложка" id="modalImage">
-                    <div class="modal-rating" id="modalRating"></div>
-                    <p class="modal-description" id="modalDescription"></p>
-                </div>
-                <div class="modal-player">
-                    <h3 id="modalTitle">Название</h3>
-                    <div class="video-container">
-                        <iframe id="modalVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Канвасы для эффектов -->
-    <canvas id="fireworksCanvas"></canvas>
-    <canvas id="ghostCanvas"></canvas>
-    <canvas id="snowCanvas"></canvas>
-    <canvas id="particlesCanvas"></canvas>
-
-    <!-- Аудио для музыки -->
-    <audio id="backgroundMusic" loop>
-        <source src="assets/music/background.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="halloweenMusic" loop>
-        <source src="assets/music/halloween.mp3" type="audio/mpeg">
-    </audio>
-    
-    <audio id="newyearMusic" loop>
-        <source src="assets/music/newyear.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Скрипты -->
+    <!-- Библиотека графиков -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/cursor.js"></script>
-    <script src="js/themes.js"></script>
-    <script src="js/expanding-dots.js"></script>
+
+    <!-- Подключение скриптов по разделам -->
     <script src="js/hero.js"></script>
     <script src="js/schedule.js"></script>
-    <script src="js/games.js"></script>
+    <script src="js/library.js"></script>
     <script src="js/stats.js"></script>
-    <script src="js/fireworks.js"></script>
-    <script src="js/music.js"></script>
-    <script src="js/ghost-hunt.js"></script>
-    <script src="js/snow.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
 </body>
 </html>
