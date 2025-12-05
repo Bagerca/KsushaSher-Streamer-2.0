@@ -1,0 +1,28 @@
+.schedule-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.day {
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.day span {
+    font-weight: bold;
+    font-family: var(--font-head);
+    display: block;
+    margin-bottom: 10px;
+    color: var(--pink);
+}
+
+/* Класс для подсветки текущего дня (добавляется JS-ом) */
+.day.active-day {
+    border: 1px solid var(--green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+    background: rgba(0, 255, 65, 0.1);
+}
