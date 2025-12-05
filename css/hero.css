@@ -20,6 +20,7 @@
     border: 1px solid var(--neon-green);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 25px), calc(100% - 25px) 100%, 0 100%);
     filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.5));
+    transition: height 0.3s ease;
 }
 
 .hud-panel::before {
@@ -123,7 +124,14 @@
 
 .cursor-pointer { cursor: pointer; }
 
-/* --- ПРАВАЯ ПАНЕЛЬ (ДЕТАЛИ/INFO) --- */
+/* --- ПРАВАЯ ПАНЕЛЬ (ДЕТАЛИ С АНИМАЦИЕЙ) --- */
+
+/* Контейнер деталей увеличивается при появлении */
+#sub-detail-view {
+    animation: zoomInPanel 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center top;
+}
+
 .back-btn {
     text-align: left;
     color: #888;
@@ -131,10 +139,13 @@
     font-size: 0.8rem;
     cursor: pointer;
     margin-bottom: 15px;
-    transition: 0.3s;
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: 0.3s;
+    /* Анимация: выезжает слева с задержкой */
+    opacity: 0; 
+    animation: slideInLeft 0.3s ease 0.1s forwards;
 }
 .back-btn:hover { color: white; text-shadow: 0 0 5px white; }
 
@@ -143,9 +154,12 @@
     margin: 0 auto 15px;
     border-radius: 50%;
     border: 2px solid #fff;
-    box-shadow: 0 0 15px #ff3333; /* Красный неон (стиль BAGERca) */
+    box-shadow: 0 0 15px #ff3333; /* Красный неон */
     overflow: hidden;
-    animation: fadeIn 0.5s ease;
+    /* Анимация: поп-ап с задержкой */
+    opacity: 0; 
+    transform: scale(0.5);
+    animation: popInAvatar 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s forwards;
 }
 
 .detail-avatar-box img { width: 100%; height: 100%; object-fit: cover; }
@@ -153,12 +167,15 @@
 #d-name {
     font-family: var(--font-ui);
     font-size: 1.5rem;
-    color: #ff5555; /* Красный текст */
+    color: #ff5555;
     text-transform: uppercase;
     margin-bottom: 15px;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(255, 85, 85, 0.5);
-    animation: slideIn 0.4s ease;
+    /* Анимация: выезжает снизу */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpText 0.4s ease 0.3s forwards;
 }
 
 #d-desc {
@@ -167,11 +184,33 @@
     font-size: 0.95rem;
     line-height: 1.5;
     text-align: center;
-    animation: slideIn 0.5s ease;
+    /* Анимация: плавное появление */
+    opacity: 0;
+    animation: fadeInText 0.6s ease 0.4s forwards;
 }
 
-@keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-@keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* КЛЮЧЕВЫЕ КАДРЫ АНИМАЦИЙ */
+@keyframes zoomInPanel {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes popInAvatar {
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUpText {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
 /* --- ЦЕНТРАЛЬНЫЙ РАДАР --- */
 .center-radar {
@@ -254,7 +293,7 @@
     text-align: center;
     position: relative;
     z-index: 5;
-    margin-top: -60px; /* Прижимаем к верху */
+    margin-top: -60px;
     padding-bottom: 50px;
 }
 
