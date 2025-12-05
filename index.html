@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM ONLINE: KSUSHA</title>
     
-    <!-- Иконки -->
+    <!-- Иконки FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Стили -->
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
 
-    <!-- ФОН -->
+    <!-- ФОНОВЫЕ ЭЛЕМЕНТЫ -->
     <div class="grid-background"></div>
     <div class="scan-line"></div>
 
     <!-- ГЛАВНАЯ СЕКЦИЯ -->
     <section class="hero-ui">
         
-        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК -->
+        <!-- ЛЕВАЯ ПАНЕЛЬ: СОЮЗНИК (TETLA) -->
         <div class="hud-panel left-panel">
             <div class="panel-header">СОЮЗНИК</div>
             <div class="content-box">
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!-- ЦЕНТР: РАДАР -->
+        <!-- ЦЕНТР: РАДАР (KSUSHA) -->
         <div class="center-radar">
             <div class="radar-circles">
                 <div class="circle c1"></div>
@@ -57,40 +57,57 @@
             </div>
         </div>
 
-        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД -->
+        <!-- ПРАВАЯ ПАНЕЛЬ: ОТРЯД (ИНТЕРАКТИВНАЯ) -->
         <div class="hud-panel right-panel">
             <div class="panel-header">ОТРЯД</div>
             <div class="content-box">
-                <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc; font-size: 0.9rem;">VIP SUB UNIT</h4>
                 
-                <div class="squad-icons">
-                    <!-- Подписчик 1 (с кликом) -->
-                    <div class="squad-member cursor-pointer" onclick="openModal('bager')">
-                        <img src="assets/images/bager.jpg" alt="Bager">
-                        <span style="display:block; margin-top:5px; font-family: var(--font-tech);">BAGERco</span>
-                    </div>
+                <!-- 1. СПИСОК (ВИДИМ ПО УМОЛЧАНИЮ) -->
+                <div id="sub-list-view">
+                    <h4 class="sub-header" style="margin-bottom: 20px; font-family: var(--font-ui); color: #ccc; font-size: 0.9rem;">VIP SUB UNIT</h4>
                     
-                    <!-- Подписчик 2 (с кликом) -->
-                    <div class="squad-member cursor-pointer" onclick="openModal('kiriki')">
-                        <img src="assets/images/kiriki.jpg" alt="Kiriki">
-                        <span style="display:block; margin-top:5px; font-family: var(--font-tech);">Kiriki</span>
+                    <div class="squad-icons">
+                        <div class="squad-member cursor-pointer" onclick="showSubscriber('bager')">
+                            <img src="assets/images/bager.jpg" alt="Bager">
+                            <span style="display:block; margin-top:5px; font-family: var(--font-tech);">BAGERco</span>
+                        </div>
+                        <div class="squad-member cursor-pointer" onclick="showSubscriber('kiriki')">
+                            <img src="assets/images/kiriki.jpg" alt="Kiriki">
+                            <span style="display:block; margin-top:5px; font-family: var(--font-tech);">Kiriki</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-row sync-row" style="margin-top: 25px;">
+                        <span class="label">СИНХРОНИЗАЦИЯ:</span>
+                        <span class="value green-text">100%</span>
                     </div>
                 </div>
 
-                <div class="stats-row sync-row" style="margin-top: 25px;">
-                    <span class="label">СИНХРОНИЗАЦИЯ:</span>
-                    <span class="value green-text">100%</span>
+                <!-- 2. ДЕТАЛИ (СКРЫТО ПО УМОЛЧАНИЮ) -->
+                <div id="sub-detail-view" style="display: none;">
+                    <!-- Кнопка назад -->
+                    <div class="back-btn" onclick="showList()">
+                        <i class="fas fa-chevron-left"></i> НАЗАД
+                    </div>
+
+                    <div class="detail-avatar-box">
+                        <img id="d-img" src="" alt="">
+                    </div>
+                    
+                    <h3 id="d-name">NAME</h3>
+                    <p id="d-desc">Description...</p>
                 </div>
+
             </div>
         </div>
 
     </section>
 
-    <!-- НИЖНИЙ БЛОК -->
+    <!-- НИЖНИЙ БЛОК: ЗАГОЛОВОК И ТЕКСТ -->
     <div class="bottom-ui">
         <h1 class="system-title">SYSTEM ONLINE: <span class="neon-text">KSUSHA SHER</span></h1>
         
-        <!-- Печатная машинка -->
+        <!-- Эффект печатной машинки -->
         <div class="subtitle-container">
             <span id="typing-text"></span><span class="cursor">|</span>
         </div>
@@ -98,20 +115,6 @@
         <div class="action-buttons">
             <a href="#" class="hud-btn"><i class="fab fa-twitch"></i> STREAM</a>
             <a href="#" class="hud-btn outline"><i class="fab fa-telegram"></i> TELEGRAM</a>
-        </div>
-    </div>
-
-    <!-- МОДАЛЬНОЕ ОКНО (Скрыто) -->
-    <div id="sub-modal" class="modal-overlay" onclick="closeModal(event)">
-        <div class="modal-card">
-            <span class="close-btn" onclick="closeModal(event)">×</span>
-            
-            <div class="modal-avatar-box">
-                <img id="m-img" src="" alt="">
-            </div>
-            
-            <h3 id="m-name">NAME</h3>
-            <p id="m-desc">Description...</p>
         </div>
     </div>
 
