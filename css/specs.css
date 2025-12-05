@@ -1,0 +1,30 @@
+.specs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.spec-card {
+    background: linear-gradient(145deg, #111, #0a0a0a);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.spec-card:hover {
+    border-color: white;
+    transform: translateY(-5px);
+}
+
+.spec-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.neon-icon-pink { color: var(--pink); text-shadow: 0 0 15px var(--pink); }
+.neon-icon-green { color: var(--green); text-shadow: 0 0 15px var(--green); }
